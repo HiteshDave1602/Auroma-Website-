@@ -148,21 +148,21 @@ export const villaImages = {
 export const planImages = {
   ground: {
     src: "/images/plans/ground-floor.jpg",
-    alt: "Ground floor plan showing living, dining, kitchen, plunge pool and parking.",
-    width: 2480,
-    height: 3508,
+    alt: "Ground floor plan showing the entrance gate, parking, plunge pool, powder room, living, dining and kitchen.",
+    width: 922,
+    height: 1706,
   },
   first: {
     src: "/images/plans/first-floor.jpg",
-    alt: "First floor plan — three ensuite bedrooms, master with soaking tub.",
-    width: 2480,
-    height: 3508,
+    alt: "First floor plan — three ensuite bedrooms, two balconies, a planted light well and the master with soaking tub.",
+    width: 978,
+    height: 1608,
   },
   second: {
     src: "/images/plans/second-floor.jpg",
-    alt: "Second floor plan — terrace, games room, solar panels, water storage and service areas.",
-    width: 972,
-    height: 1600,
+    alt: "Second floor plan — terrace recreation zone with pool table, chess and carrom, washer-dryer, inverter and battery, water tanks, DG backup, solar panels and solar water heater.",
+    width: 978,
+    height: 1609,
   },
 } as const;
 

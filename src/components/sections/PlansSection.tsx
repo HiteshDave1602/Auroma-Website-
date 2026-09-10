@@ -56,16 +56,16 @@ export function PlansSection({ id }: { id?: string }) {
             role="tabpanel"
             className="mt-10 grid grid-cols-1 gap-8 rounded-2xl border border-slate/10 bg-white p-7 text-left shadow-xl shadow-midnight/5 sm:mt-12 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:gap-10"
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-midnight/5 shadow-lg shadow-midnight/10">
+            <div className="relative aspect-[3/5] w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-midnight/10">
               {image ? (
                 <Image
                   key={image.src}
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  sizes="(min-width: 1024px) 46vw, 90vw"
                   loading="lazy"
-                  className="object-cover"
+                  className="object-contain"
                 />
               ) : (
                 <div className="flex h-full w-full flex-col items-center justify-center gap-3 border border-dashed border-slate/30 px-6 text-center">
