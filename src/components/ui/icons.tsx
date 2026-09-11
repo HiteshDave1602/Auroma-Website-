@@ -204,3 +204,21 @@ export function IconDownload(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconAlert(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5 V13" />
+      <circle cx="12" cy="16.2" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IconCheck(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4.5 12.5 L9.5 17.5 L19.5 6.5" />
+    </svg>
+  );
+}

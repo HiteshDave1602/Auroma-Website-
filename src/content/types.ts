@@ -20,6 +20,8 @@ export interface LeadFormData {
   whatsappNumber: string;
   city: string;
   investmentRange: InvestmentRange | "";
+  /** Optional free-text note from the prospect. Never required. */
+  message?: string;
   consent: boolean;
 }
 
