@@ -31,14 +31,20 @@ export async function POST(req: NextRequest) {
   // WhatsApp/download-brochure success flow, even if the email provider is
   // slow or down.
   if (body?.type !== "brochure_download") {
-    after(() =>
-      sendLeadNotificationEmail({
+    // TEMP DEBUG — remove once production email delivery is confirmed working.
+    console.log("[lead][debug] scheduling sendLeadNotificationEmail via after()", { leadId });
+    after(async () => {
+      console.log("[lead][debug] after() callback firing", { leadId });
+      await sendLeadNotificationEmail({
         data: body as LeadFormData,
         variant: (body?.variant as PageVariant) ?? "home",
         sourcePage: typeof body?.sourcePage === "string" ? body.sourcePage : "",
         submittedAt: createdAt,
-      }),
-    );
+      });
+      console.log("[lead][debug] after() callback finished", { leadId });
+    });
+  } else {
+    console.log("[lead][debug] skipping email — body.type is brochure_download", { leadId });
   }
 
   return NextResponse.json({ leadId });

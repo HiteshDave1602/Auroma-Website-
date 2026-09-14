@@ -29,6 +29,11 @@ export async function sendLeadNotificationEmail({
   submittedAt,
 }: LeadNotificationInput): Promise<void> {
   const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  // TEMP DEBUG — remove once production email delivery is confirmed working.
+  console.log(
+    "[lead-email][debug] WEB3FORMS_ACCESS_KEY at runtime:",
+    accessKey ? `defined (len=${accessKey.length}, starts=${accessKey.slice(0, 4)}…)` : "UNDEFINED",
+  );
   if (!accessKey) {
     console.warn("[lead-email] WEB3FORMS_ACCESS_KEY is not set — skipping email notification.");
     return;
@@ -40,27 +45,39 @@ export async function sendLeadNotificationEmail({
     timeStyle: "short",
   });
 
+  const payload = {
+    access_key: accessKey,
+    subject: `New enquiry — ${data.fullName || "Website visitor"} (Auroma Holiday Villas)`,
+    from_name: "Auroma Holiday Villas Website",
+    "Full Name": data.fullName || "(not provided)",
+    "WhatsApp Number": data.whatsappNumber || "(not provided)",
+    City: data.city || "(not provided)",
+    "Investment Range": data.investmentRange || "(not provided)",
+    Message: data.message?.trim() ? data.message.trim() : "(not provided)",
+    "Submitted At (IST)": submittedAtLabel,
+    "Page Variant": variant,
+    "Source Page": sourcePage || "(unknown)",
+  };
+
   try {
+    // TEMP DEBUG — remove once production email delivery is confirmed working.
+    console.log("[lead-email][debug] calling Web3Forms API now", { endpoint: WEB3FORMS_ENDPOINT });
+
     const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `New enquiry — ${data.fullName || "Website visitor"} (Auroma Holiday Villas)`,
-        from_name: "Auroma Holiday Villas Website",
-        "Full Name": data.fullName || "(not provided)",
-        "WhatsApp Number": data.whatsappNumber || "(not provided)",
-        City: data.city || "(not provided)",
-        "Investment Range": data.investmentRange || "(not provided)",
-        Message: data.message?.trim() ? data.message.trim() : "(not provided)",
-        "Submitted At (IST)": submittedAtLabel,
-        "Page Variant": variant,
-        "Source Page": sourcePage || "(unknown)",
-      }),
+      body: JSON.stringify(payload),
+    });
+
+    const responseBody = await res.text().catch(() => "");
+    // TEMP DEBUG — remove once production email delivery is confirmed working.
+    console.log("[lead-email][debug] Web3Forms API responded", {
+      status: res.status,
+      ok: res.ok,
+      body: responseBody,
     });
 
     if (!res.ok) {
-      const responseBody = await res.text().catch(() => "");
       console.error("[lead-email] Web3Forms returned an error response", res.status, responseBody);
     }
   } catch (err) {
