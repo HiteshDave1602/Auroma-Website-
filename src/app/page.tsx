@@ -10,8 +10,10 @@ import { MidCta } from "@/components/sections/MidCta";
 import { ArchitectSection } from "@/components/sections/ArchitectSection";
 import { VillaGallery } from "@/components/sections/VillaGallery";
 import { LocationSection } from "@/components/sections/LocationSection";
+import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { PlansSection } from "@/components/sections/PlansSection";
 import { PricingSection } from "@/components/sections/PricingSection";
+import { PaymentPlanSection } from "@/components/sections/PaymentPlanSection";
 import { LeadForm } from "@/components/sections/LeadForm";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { AnalyticsBoot } from "@/components/AnalyticsBoot";
@@ -23,6 +25,12 @@ import {
   galleryKicker,
   gallerySupportInvestor,
   faqShared,
+  signaturePlacesEyebrow,
+  signaturePlacesHeadline,
+  signaturePlaces,
+  signatureExperiencesEyebrow,
+  signatureExperiencesHeadline,
+  signatureExperiences,
 } from "@/content/shared";
 
 // Investor landing page (BUILD-SPEC v3.0). Noindex, nofollow: paid traffic
@@ -77,6 +85,20 @@ export default function HomePage() {
         <MidCta headline={lpB.midCta.headline} body={lpB.midCta.body} cta={lpB.midCta.cta} />
         <ArchitectSection id="architect" />
         <VillaGallery id="gallery" kicker={galleryKicker} support={gallerySupportInvestor} />
+        <SignatureGallery
+          id="signature-places"
+          eyebrow={signaturePlacesEyebrow}
+          headline={signaturePlacesHeadline}
+          items={signaturePlaces}
+          tone="paper"
+        />
+        <SignatureGallery
+          id="signature-experiences"
+          eyebrow={signatureExperiencesEyebrow}
+          headline={signatureExperiencesHeadline}
+          items={signatureExperiences}
+          tone="midnight"
+        />
         <LocationSection id="location" comeForLabel="What your guests will come for" />
         <PlansSection id="plans" />
         <PricingSection
@@ -87,6 +109,7 @@ export default function HomePage() {
           revision={lpB.pricing.revision}
           cta={lpB.pricing.cta}
         />
+        <PaymentPlanSection id="payment-plan" />
         <LeadForm variant="investor" headline={lpB.form.headline} body={lpB.form.body} />
         <FaqSection items={faqItems} />
       </main>

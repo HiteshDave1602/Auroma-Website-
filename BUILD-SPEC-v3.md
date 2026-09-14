@@ -10,6 +10,8 @@
 
 Single source of truth for the investor landing page. Implement section by section, in order. Copy marked verbatim is final — do not write, rewrite, tighten or paraphrase it, including punctuation and line breaks.
 
+
+
 Where a section is marked **HIDDEN**, render nothing. No placeholder, no "coming soon", no empty container.
 
 Where this file conflicts with the live build, this file wins.
@@ -341,7 +343,7 @@ Placeholder: `Select a range`. No "prefer not to say" — this field is the qual
 
 **Consent label — verbatim**
 ```
-Send me the brochure and project updates on WhatsApp.
+Download the brochure and project updates on WhatsApp.
 ```
 
 **Submit:** `Send me the brochure`

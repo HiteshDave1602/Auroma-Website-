@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { trackEvent } from "@/lib/analytics";
+import { scrollToContactForm } from "@/lib/scrollToContact";
 import type { ImageAsset } from "@/content/types";
 
 interface HeroProps {
@@ -83,7 +84,14 @@ export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: Hero
           </p>
 
           <div className={`mt-9 flex flex-wrap items-center gap-4 ${step()}`} style={delay(680)}>
-            <Button href="#form" onClick={() => trackEvent("hero_cta_click", { location: "hero" })}>
+            <Button
+              href="#form"
+              onClick={(e) => {
+                e.preventDefault();
+                trackEvent("hero_cta_click", { location: "hero" });
+                scrollToContactForm();
+              }}
+            >
               {cta}
             </Button>
           </div>

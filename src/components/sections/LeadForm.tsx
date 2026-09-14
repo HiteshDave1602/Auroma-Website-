@@ -79,25 +79,90 @@ export function LeadForm({
   const doneCardRef = useRef<HTMLDivElement>(null);
 
   /**
-   * When the form successfully swaps to the "done" state, smooth-scroll the
-   * success card right below the sticky header — never to the viewport center,
-   * so the page can't overshoot into the FAQ/footer. Runs exactly once (only
-   * when `stage` becomes "done"), never during typing or on an invalid
-   * submission. The double requestAnimationFrame defers until React has
-   * committed the new layout so the scroll target sits in its final position.
+   * The card that visually wraps whichever stage is active, and the content
+   * node inside it whose natural size we measure. The form is much taller
+   * than the "done" card, so swapping them changes this wrapper's rendered
+   * height — and with it, the Contact section's total height.
+   *
+   * ROOT CAUSE (confirmed by tracing real scrollY/layout values through a
+   * live submission): React commits the shorter "done" content in a single
+   * synchronous DOM update. The browser reflows immediately, and because the
+   * wrapper's height instantly drops by several hundred pixels while the
+   * user is scrolled into the middle of the section, content that used to be
+   * below the viewport (the FAQ section) gets pulled straight into view —
+   * with no scroll call involved at all, just a layout collapse. The
+   * previous fix only ran a corrective `window.scrollTo` afterwards, so the
+   * FAQ flash and the "bounce back" correction were both real, just
+   * happening in the wrong order relative to the actual defect.
+   *
+   * The fix is to stop the instant collapse from ever happening: freeze the
+   * wrapper at its pre-swap pixel height the instant we swap content (a
+   * no-op visually, since that's already its size), then animate the height
+   * down to the new content's natural size over a CSS transition. The
+   * wrapper's *top* edge never moves — only its bottom edge eases upward —
+   * so the Contact section can never shrink into the FAQ section below it.
    */
+  const cardWrapperRef = useRef<HTMLDivElement>(null);
+  const cardContentRef = useRef<HTMLDivElement>(null);
+  const [cardHeightLock, setCardHeightLock] = useState<number | null>(null);
+
+  const HEIGHT_TRANSITION_MS = 420;
+
+  /**
+   * Nudges the success card into view if it's hidden behind the sticky
+   * header (e.g. the user had scrolled deep into a long form). Clamped so it
+   * can never scroll past the Contact section's own bottom edge, so the FAQ
+   * section can never be pulled into view by this either.
+   */
+  function nudgeCardIntoView() {
+    const card = doneCardRef.current;
+    const section = document.getElementById("form");
+    if (!card || !section) return;
+
+    const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 80;
+    const topPadding = headerHeight + 16;
+    const cardRect = card.getBoundingClientRect();
+    if (cardRect.top >= topPadding) return; // already fully visible below the header
+
+    const sectionRect = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const currentScrollY = window.scrollY;
+
+    const desiredScrollY = currentScrollY + cardRect.top - topPadding;
+    const maxScrollY = currentScrollY + sectionRect.bottom - viewportHeight;
+    const documentMaxScrollY = document.documentElement.scrollHeight - viewportHeight;
+    const targetScrollY = Math.max(0, Math.min(desiredScrollY, maxScrollY, documentMaxScrollY));
+
+    if (Math.abs(targetScrollY - currentScrollY) < 2) return;
+    window.scrollTo({ top: targetScrollY, behavior: "smooth" });
+  }
+
   useEffect(() => {
     if (stage !== "done") return;
+
+    const wrapper = cardWrapperRef.current;
+    const content = cardContentRef.current;
+    if (!wrapper || !content) return;
+
+    nudgeCardIntoView();
+
     const frame = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const card = doneCardRef.current;
-        if (!card) return;
-        const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 80;
-        card.style.scrollMarginTop = `${headerHeight + 16}px`;
-        card.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+      const style = getComputedStyle(wrapper);
+      const verticalExtra =
+        parseFloat(style.paddingTop) +
+        parseFloat(style.paddingBottom) +
+        parseFloat(style.borderTopWidth) +
+        parseFloat(style.borderBottomWidth);
+      const targetHeight = content.getBoundingClientRect().height + verticalExtra;
+      setCardHeightLock(targetHeight);
     });
-    return () => cancelAnimationFrame(frame);
+
+    const timeout = setTimeout(() => setCardHeightLock(null), HEIGHT_TRANSITION_MS);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      clearTimeout(timeout);
+    };
   }, [stage]);
 
   /**
@@ -165,6 +230,10 @@ export function LeadForm({
     try {
       await submitLead(data, variant);
       trackEvent("lead", { variant });
+      // Freeze the card at its current (tall, form) height *before* swapping
+      // content, so the swap itself never causes a visible layout collapse.
+      const currentHeight = cardWrapperRef.current?.getBoundingClientRect().height;
+      if (currentHeight) setCardHeightLock(currentHeight);
       setStage("done");
     } catch {
       setSubmitError("Something went wrong — please try again.");
@@ -225,9 +294,29 @@ export function LeadForm({
             The submit card. stage === "done" swaps ONLY its own content — the
             FAQ section is a separate component rendered after this one and is
             never touched by anything in this component.
+
+            cardHeightLock pins this wrapper's pixel height across that swap
+            (see the effect above) so the height change animates smoothly
+            instead of collapsing instantly — which is what was pulling the
+            FAQ section into view. overflow is clipped only while a height is
+            locked, since the shorter "done" content would otherwise show
+            through the taller frozen box for that one frame.
           */}
-          <div className="rounded-3xl border-2 border-midnight bg-sand p-7 shadow-2xl shadow-black/30 sm:p-10 lg:self-start">
-            {stage === "form" ? (
+          <div
+            ref={cardWrapperRef}
+            className="rounded-3xl border-2 border-midnight bg-sand p-7 shadow-2xl shadow-black/30 sm:p-10 lg:self-start"
+            style={
+              cardHeightLock !== null
+                ? {
+                    height: `${cardHeightLock}px`,
+                    overflow: "hidden",
+                    transition: `height ${HEIGHT_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+                  }
+                : undefined
+            }
+          >
+            <div ref={cardContentRef}>
+              {stage === "form" ? (
               <Reveal delay={100} key="form">
                 <form onSubmit={handleSubmit} onFocus={onFirstFocus} noValidate className="space-y-6">
                   <div>
@@ -376,7 +465,7 @@ export function LeadForm({
                       aria-invalid={Boolean(showError("consent"))}
                     />
                     <span className="font-body text-[13px] leading-relaxed text-slate">
-                      Send me the brochure and project updates on WhatsApp.
+                      Download the brochure and project updates on WhatsApp.
                     </span>
                   </label>
                   {showError("consent") && (
@@ -426,6 +515,7 @@ export function LeadForm({
                 </div>
               </Reveal>
             )}
+            </div>
           </div>
         </div>
       </div>

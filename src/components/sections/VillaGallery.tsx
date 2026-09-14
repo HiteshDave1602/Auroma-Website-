@@ -120,6 +120,7 @@ export function VillaGallery({
             className="relative block aspect-[4/3] w-full overflow-hidden rounded-xl shadow-xl shadow-midnight/10"
           >
             <GalleryImage img={img} priority={i === 0} />
+            <ImageCaption caption={img.caption} />
           </button>
         ))}
       </div>
@@ -141,6 +142,7 @@ export function VillaGallery({
               className="relative aspect-[4/3] w-[82vw] shrink-0 snap-center overflow-hidden rounded-xl shadow-xl shadow-midnight/10 sm:w-[60vw]"
             >
               <GalleryImage img={img} priority={i === 0} eager={i !== 0} />
+              <ImageCaption caption={img.caption} />
             </button>
           ))}
         </div>
@@ -206,6 +208,11 @@ export function VillaGallery({
               sizes="(min-width: 1024px) 900px, 92vw"
               className="object-contain"
             />
+            {images[lightboxIndex].caption && (
+              <p className="absolute inset-x-0 bottom-0 pt-6 text-center font-label text-[12px] tracking-[0.14em] uppercase text-paper/90">
+                {images[lightboxIndex].caption}
+              </p>
+            )}
           </div>
           <button
             type="button"
@@ -250,5 +257,20 @@ function GalleryImage({
       sizes="(min-width: 1024px) 30vw, 85vw"
       className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
     />
+  );
+}
+
+function ImageCaption({ caption }: { caption?: string }) {
+  if (!caption) return null;
+  return (
+    <>
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight/80 via-midnight/10 to-transparent"
+        aria-hidden="true"
+      />
+      <p className="pointer-events-none absolute inset-x-0 bottom-0 p-4 text-left font-label text-[11px] tracking-[0.14em] uppercase text-paper sm:text-[12px]">
+        {caption}
+      </p>
+    </>
   );
 }

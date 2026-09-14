@@ -15,8 +15,8 @@ export const lpB = {
     line1: "Own a villa near Auroville.",
     line2: "Host it when you're away.",
     body: "Three bedrooms, sleeps eight, private plunge pool.\nArchitect-designed by Ar. Trupti Doshi, ten minutes from the Matrimandir.",
-    priceLine: "Under ₹4 crore",
-    cta: "Get the brochure on WhatsApp",
+    priceLine: "~₹3.5 crore",
+    cta: "Download Brochure",
   },
 
   theCase: {
@@ -64,7 +64,7 @@ export const lpB = {
 
   pricing: {
     kicker: "Pricing",
-    headlinePrefix: "Under ",
+    headlinePrefix: "",
     exclusions: "Exclusive of registration, stamp duty, GST and statutory charges.",
     revision: "Prices are indicative and subject to revision.",
     cta: "Get the full price sheet on WhatsApp",

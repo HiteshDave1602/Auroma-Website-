@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { IconMenu, IconClose } from "@/components/ui/icons";
 import { trackEvent } from "@/lib/analytics";
+import { scrollToContactForm } from "@/lib/scrollToContact";
 
 // Sticky nav — investor-page-specific deviation from BUILD-SPEC v3 §2.2
 // ("no header nav"), requested directly for this build. Anchors to
@@ -80,7 +81,11 @@ export function SiteHeader({ cta }: { cta: string }) {
               href="#form"
               variant="primary"
               className="!px-5 !py-2.5 text-[13px] sm:!px-7 sm:!py-3 sm:text-[14px]"
-              onClick={() => trackEvent("hero_cta_click", { location: "header" })}
+              onClick={(e) => {
+                e.preventDefault();
+                trackEvent("hero_cta_click", { location: "header" });
+                scrollToContactForm();
+              }}
             >
               {cta}
             </Button>
