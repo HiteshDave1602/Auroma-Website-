@@ -386,33 +386,6 @@ export const specifications = {
         },
       ],
     },
-    {
-      label: "Interior Finishes",
-      groups: [
-        {
-          label: "Doors & Windows",
-          items: [
-            "Main Door – High quality Burma Teak",
-            "Bedroom Doors – High quality Designer Flush doors",
-            "Washroom Doors – High quality Waterproof doors",
-            "Windows – Aluminium / UPVC with heat reflecting Glass",
-            "Safety grills on Windows",
-          ],
-        },
-        {
-          label: "Flooring & Fittings",
-          items: [
-            "Flooring – Living, Dining, Bedrooms: Stone large format",
-            "Flooring – Washrooms: High grade Designer tiles",
-            "Flooring – Terraces: High quality anti-skid",
-            "Flooring – Balconies & Verandahs: High quality Designer tiles",
-            "Sanitary ware – Designer (Jaguar or equivalent brand)",
-            "Sanitary Fittings – Designer (Jaguar or equivalent brand)",
-            "Electrical Switches – Designer (Havells or equivalent)",
-          ],
-        },
-      ],
-    },
   ],
   note: "Specifications listed are indicative and subject to change, availability and statutory approvals.",
 } as const;
