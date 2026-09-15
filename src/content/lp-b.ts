@@ -14,15 +14,15 @@ export const lpB = {
     kicker: "NEAR AUROVILLE · PONDICHERRY",
     line1: "Own a villa near Auroville.",
     line2: "Host it when you're away.",
-    body: "Three bedrooms, sleeps eight, private plunge pool.\nArchitect-designed by Ar. Trupti Doshi, ten minutes from the Matrimandir.",
+    body: "3 Bedroom, 4 Bath, Sleeps 8, Swimming Pool, Game Room.\nArchitect-designed by Ar. Trupti Doshi, 10 minutes from the Matrimandir.",
     priceLine: "~₹3.5 crore",
     cta: "Download Brochure",
   },
 
   theCase: {
-    headline: "Most holiday homes ask more than they give back.",
-    body: "You'd use it six weekends a year, and it sits empty for the rest.\nYou don't live in Pondicherry — running a short-stay let from\nwherever you are isn't something you signed up for. And everyone\nselling you a villa promises a number they can't stand behind.",
-    closing: "We built ours differently. And we'll introduce you to the people who run it.",
+    headline: "Want a holiday home that doesn't sit empty?",
+    body: "You'll use it a few weekends a year. The rest of the time it stays locked — and you're far away.",
+    closing: "So we built it to be used. You stay when you want. Guests stay when you don't. And we'll introduce you to the people in Auroville who run it for you.",
   },
 
   hosting: {
