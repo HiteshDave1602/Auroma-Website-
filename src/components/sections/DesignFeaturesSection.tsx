@@ -1,7 +1,6 @@
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
-import { IconBadge } from "@/components/ui/Card";
 import {
   IconEcoMaterial,
   IconSolar,
@@ -45,24 +44,38 @@ export function DesignFeaturesSection({
           <SectionDivider className="mt-7 sm:mt-8" />
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+        {/* Flex-wrap, not grid: with exactly seven cards no fixed column
+            count divides evenly, and flex-wrap + justify-center lets an
+            incomplete last row settle in the middle instead of trailing
+            off with empty space on the right. 2 → 3 → 4 per row. */}
+        <ul className="mt-16 flex flex-wrap justify-center gap-6 sm:mt-20">
           {points.map((point, i) => {
             const Icon = icons[i % icons.length];
             return (
-              <Reveal key={point} delay={160 + i * 55} as="li">
-                <div className="card-lift flex h-full flex-col items-center gap-3 rounded-xl border border-slate/10 bg-white px-4 py-7 shadow-lg shadow-midnight/5 hover:border-gold/30 hover:shadow-2xl hover:shadow-midnight/10">
-                  <IconBadge tone="gold">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </IconBadge>
-                  <p className="font-body text-[12.5px] leading-snug text-midnight sm:text-[13px]">{point}</p>
+              <Reveal
+                key={point}
+                delay={160 + i * 55}
+                as="li"
+                className="w-[calc(50%-12px)] sm:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)]"
+              >
+                <div className="card-lift group flex h-full flex-col items-center gap-4 rounded-2xl border border-gold/15 bg-[#fbf7ee] px-6 py-9 shadow-lg shadow-midnight/[0.06] hover:border-gold/40 hover:shadow-2xl hover:shadow-midnight/[0.12] sm:px-7 sm:py-10">
+                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold/25 via-gold/12 to-gold/5 ring-1 ring-gold/25 transition-transform duration-300 ease-out group-hover:scale-105">
+                    <Icon className="h-7 w-7 text-gold" aria-hidden="true" />
+                  </span>
+                  <p className="font-body text-[13.5px] font-medium leading-snug tracking-[0.01em] text-midnight sm:text-sm">
+                    {point}
+                  </p>
                 </div>
               </Reveal>
             );
           })}
         </ul>
 
-        <Reveal delay={160 + points.length * 55 + 100}>
-          <p className="mt-14 font-display text-xl font-bold text-gold sm:text-2xl">{closing}</p>
+        <Reveal delay={160 + points.length * 55 + 120}>
+          <div className="mx-auto mt-16 flex max-w-xl flex-col items-center gap-5 sm:mt-20">
+            <span className="h-px w-14 bg-gradient-to-r from-transparent via-gold/60 to-transparent" aria-hidden="true" />
+            <p className="font-display text-xl font-bold text-gold sm:text-2xl">{closing}</p>
+          </div>
         </Reveal>
       </div>
     </section>
