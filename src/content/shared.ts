@@ -7,7 +7,7 @@ export const brand = {
   idea: "Where your home has a soul.",
   pillars: ["Sustainable", "Luxury", "Well-being"] as const,
   architectName: "Ar. Trupti Doshi",
-  architectRole: "Principal Architect and Co-founder, The Auroma Group.",
+  architectRole: "Principal Architect and Co-founder, The Auroma Architecture.",
 };
 
 export const villaImages = {
@@ -34,10 +34,10 @@ export const villaImages = {
   },
   exteriorSideAngle: {
     src: "/images/villa/exterior-side-angle.jpg",
-    alt: "Side angled view of the villa showing layered balconies, white walls and surrounding greenery.",
+    alt: "Side elevation of the villa showing layered balconies, timber pergola, botanical mural and surrounding palms.",
     caption: undefined,
-    width: 1600,
-    height: 900,
+    width: 1672,
+    height: 941,
   },
   exteriorFront: {
     src: "/images/villa/exterior-front.jpg",
@@ -183,8 +183,8 @@ export const planImages = {
   second: {
     src: "/images/plans/second-floor.jpg",
     alt: "Second floor plan — terrace recreation zone with pool table, chess and carrom, washer-dryer, inverter and battery, water tanks, DG backup, solar panels and solar water heater.",
-    width: 978,
-    height: 1609,
+    width: 927,
+    height: 1697,
   },
 } as const;
 
@@ -208,7 +208,7 @@ export const credibilityItems = {
 export const architect = {
   eyebrow: "The Architect",
   name: "Ar. Trupti Doshi",
-  role: "Principal Architect and Co-founder, The Auroma Group.",
+  role: "Principal Architect and Co-founder, The Auroma Architecture.",
   bio: [
     "She has spent twenty-five years asking a question most builders never ask: what would it take for a house to feel alive? She took that question to a TEDx stage in Greece — ",
   ],
@@ -226,6 +226,71 @@ export const architect = {
   closing: "This villa was drawn by her hand.",
 };
 
+// Auroma Group's completed track record (brochure p.20) — the developer's
+// delivery history across the same land, distinct from the villa being sold.
+// Referenced by PENDING.reraOpinionConfirmed's note on "Phases 1–4".
+export const trackRecordEyebrow = "Our Legacy";
+export const trackRecordHeadline = "Proven Across Four Phases";
+export const trackRecordSupport =
+  "Before this villa, there was a track record — four phases of homes delivered on the same land, near Auroville.";
+export const trackRecord = [
+  {
+    name: "Auroma Phase I",
+    homes: "24 Homes",
+    images: [
+      {
+        src: "/images/track-record/phase-1.jpg",
+        alt: "Auroma Phase I — a three-storey building with warm yellow and white balconies and hanging planters.",
+        width: 1200,
+        height: 297,
+      },
+    ],
+  },
+  {
+    name: "Auroma Phase II",
+    homes: "11 Homes",
+    images: [
+      {
+        src: "/images/track-record/phase-2.jpg",
+        alt: "Auroma Phase II — a row of homes with yellow, green and blue balcony trims.",
+        width: 1200,
+        height: 353,
+      },
+    ],
+  },
+  {
+    name: "Auroma Phase III",
+    homes: "Gratitude Ecovilla",
+    award: "Internationally Awarded as India's First House of Tomorrow",
+    images: [
+      {
+        src: "/images/track-record/phase-3.jpg",
+        alt: "Gratitude Ecovilla, Auroma Phase III — a terraced building with timber pergolas and coloured drapes.",
+        width: 1200,
+        height: 358,
+      },
+    ],
+  },
+  {
+    name: "Auroma Phase IV",
+    homes: "9 Homes",
+    images: [
+      {
+        src: "/images/track-record/phase-4-left.jpg",
+        alt: "Auroma Phase IV — a terrace with a blue timber pergola and blue-and-white drapes.",
+        width: 1200,
+        height: 630,
+      },
+      {
+        src: "/images/track-record/phase-4-right.jpg",
+        alt: "Auroma Phase IV — a terrace with a wooden pergola and yellow-and-white drapes.",
+        width: 1200,
+        height: 628,
+      },
+    ],
+  },
+] as const;
+
 export const galleryKicker = "THE VILLA";
 export const gallerySupportInvestor =
   "Three storeys. A private plunge pool at the door. A roof terrace under timber.\nThree bedrooms, four washrooms, sleeps eight.";
@@ -240,6 +305,117 @@ export const galleryAmenities = [
 ];
 export const galleryCaption =
   "Images and renders are artistic representations for illustrative purposes. Design, specification and dimensions are indicative and subject to change and statutory approvals.";
+
+export const specifications = {
+  eyebrow: "What's Included",
+  headline: "Specifications",
+  categories: [
+    {
+      label: "Key Design Elements",
+      groups: [
+        {
+          label: undefined,
+          items: [
+            "Designer Villa with bespoke Architecture",
+            "Natural Eco-friendly Materials",
+            "Vaastu Compliant",
+            "Luxury Features",
+          ],
+        },
+      ],
+    },
+    {
+      label: "Sustainability Features",
+      groups: [
+        {
+          label: undefined,
+          items: [
+            "Solar Panels",
+            "Solar Water Heater in Terrace",
+            "Bioseptic Tank",
+            "Automated Sensor based Water Pumping",
+            "Rainwater Harvesting",
+            "Automated Irrigation line in Garden",
+            "Kitchen Garden",
+            "Kitchen Waste Composter",
+            "Eco-friendly Materials to reduce AC load",
+          ],
+        },
+      ],
+    },
+    {
+      label: "Value Added Features",
+      groups: [
+        {
+          label: undefined,
+          items: [
+            "Private Swimming Pool & Pool Deck",
+            "Mosquito Mesh on Windows",
+            "High Speed Internet",
+            "EV Charging Point",
+            "Smart Lock & Self-check-in",
+          ],
+        },
+      ],
+    },
+    {
+      label: "Amenities – Water",
+      groups: [
+        {
+          label: undefined,
+          items: [
+            "Water Purifier in Kitchen",
+            "24x7 Hot water to all Washrooms",
+            "Private Borewell",
+            "Overhead Water Tank",
+          ],
+        },
+      ],
+    },
+    {
+      label: "Amenities – Energy",
+      groups: [
+        {
+          label: undefined,
+          items: [
+            "Concealed Copper wiring",
+            "Inverter & Battery Backup",
+            "Genset Power Backup",
+            "CCTV Surveillance",
+          ],
+        },
+      ],
+    },
+    {
+      label: "Interior Finishes",
+      groups: [
+        {
+          label: "Doors & Windows",
+          items: [
+            "Main Door – High quality Burma Teak",
+            "Bedroom Doors – High quality Designer Flush doors",
+            "Washroom Doors – High quality Waterproof doors",
+            "Windows – Aluminium / UPVC with heat reflecting Glass",
+            "Safety grills on Windows",
+          ],
+        },
+        {
+          label: "Flooring & Fittings",
+          items: [
+            "Flooring – Living, Dining, Bedrooms: Stone large format",
+            "Flooring – Washrooms: High grade Designer tiles",
+            "Flooring – Terraces: High quality anti-skid",
+            "Flooring – Balconies & Verandahs: High quality Designer tiles",
+            "Sanitary ware – Designer (Jaguar or equivalent brand)",
+            "Sanitary Fittings – Designer (Jaguar or equivalent brand)",
+            "Electrical Switches – Designer (Havells or equivalent)",
+          ],
+        },
+      ],
+    },
+  ],
+  note: "Specifications listed are indicative and subject to change, availability and statutory approvals.",
+} as const;
 
 export const locationMapImage = {
   src: "/images/location/location-map.png",
@@ -498,24 +674,117 @@ export const paymentPlan = {
   ],
 } as const;
 
-// B11 / A10 — real quotes exist in the source brochure, but written consent
-// is not yet on file (content spec, section 07). Do not render these until
-// content.pendingFlags.testimonialConsent is true. Employer name intentionally
-// omitted per the spec's note even once consent lands, unless separately cleared.
+// B11 / A10 — written consent now on file for all eight owners below
+// (brochure pp.21–24, confirmed 15 Sept 2026). Photos and employer/affiliation
+// lines are published as printed in the brochure itself.
+export const testimonialsEyebrow = "Testimonials";
+export const testimonialsHeadline = "What Our Homeowners Say";
 export const testimonials = [
   {
     quote:
-      "Living in an Auroma home means experiencing natural light, greenery, birdsong and a deep connection with nature. Its solid structure, quality materials, Vastu and distinctive design inspire confidence.",
+      "Living in an Auroma home means experiencing natural light, greenery, birdsong and a deep connection with nature. Its solid structure, quality materials, Vastu and distinctive design inspire confidence. Both our investments, from selection to execution, have been smooth and special.",
     attribution: "Captain Mohanshyam",
-    role: "Aviator and Flight Instructor",
+    role: "Aviator Flight Instructor, Adani Group",
+    phase: "Phase 1",
+    photo: {
+      src: "/images/testimonials/mohanshyam.jpg",
+      alt: "Captain Mohanshyam, Auroma Phase 1 homeowner.",
+      width: 488,
+      height: 651,
+    },
   },
   {
     quote:
       "Here, you wake up to sunlight, greenery and the music of birds. It is poetry that cannot be expressed in words. Even the finest resorts cannot give me the feeling I get here.",
     attribution: "Shreeprakash Patel",
     role: "Diamond Merchant, Dubai",
+    phase: "Phase 1",
+    photo: {
+      src: "/images/testimonials/shreeprakash.jpg",
+      alt: "Shreeprakash Patel, Auroma Phase 1 homeowner.",
+      width: 489,
+      height: 652,
+    },
   },
-];
+  {
+    quote:
+      "I have never seen architecture like this in America, Bombay, or elsewhere in India. The balcony is my favourite place, with beautiful views and peaceful surroundings. The home is designed and well built. I love inviting friends and family to experience it, and I would happily stay here for years.",
+    attribution: "Kalindi Bhuta",
+    role: "Homemaker",
+    phase: "Phase 2",
+    photo: {
+      src: "/images/testimonials/kalindi.jpg",
+      alt: "Kalindi Bhuta, Auroma Phase 2 homeowner.",
+      width: 500,
+      height: 446,
+    },
+  },
+  {
+    quote:
+      "What drew me to Auroma was Trupti's philosophy of how buildings communicate with people. At Auroma French Villaments, we saw architecture thoughtfully integrated with nature, creating meaningful, comfortable homes while preserving their environment.",
+    attribution: "Shivani Shroff",
+    role: "Lead Coach, Association Montessori Internationale",
+    phase: "Phase 2",
+    photo: {
+      src: "/images/testimonials/shivani.jpg",
+      alt: "Shivani Shroff, Auroma Phase 2 homeowner.",
+      width: 500,
+      height: 498,
+    },
+  },
+  {
+    quote:
+      "The folded balconies give our home such a distinctive character, while the kitchen garden makes everyday living feel fresh and personal. Being surrounded by greenery brings us closer to nature and makes the experience uplifting.",
+    attribution: "Kadhambari",
+    role: "Graphic Designer",
+    phase: "Phase 3",
+    photo: {
+      src: "/images/testimonials/kadhambari.jpg",
+      alt: "Kadhambari, Auroma Phase 3 homeowner.",
+      width: 500,
+      height: 555,
+    },
+  },
+  {
+    quote:
+      "What I enjoy most is how cool the interiors remain throughout the day. The breezy stilt floor feels refreshing, and the sustainable features work quietly in the background, making daily life comfortable, efficient and effortless.",
+    attribution: "Roshini Baskaran",
+    role: "Architect",
+    phase: "Phase 3",
+    photo: {
+      src: "/images/testimonials/roshini.jpg",
+      alt: "Roshini Baskaran, Auroma Phase 3 homeowner.",
+      width: 500,
+      height: 562,
+    },
+  },
+  {
+    quote:
+      "Our home feels deeply connected to nature, with verandas, patios and large windows opening to the surrounding greenery. It is warm and welcoming, an open-hearted space where friends and family can gather, stay, connect and feel completely at home together.",
+    attribution: "Suresh Kanha",
+    role: "Asst. Professor, IIIT Hyderabad",
+    phase: "Phase 4",
+    photo: {
+      src: "/images/testimonials/suresh.jpg",
+      alt: "Suresh Kanha, Auroma Phase 4 homeowner.",
+      width: 500,
+      height: 549,
+    },
+  },
+  {
+    quote:
+      "Location was one of the first things I loved about the home. What impressed me most was the attention to detail, especially the stone flooring. The team also helped me choose furniture and appliances that perfectly matched the theme and character of my home.",
+    attribution: "Founder, Harmony Montessori",
+    role: "Chain of Schools, Mumbai",
+    phase: "Phase 4",
+    photo: {
+      src: "/images/testimonials/harmony.jpg",
+      alt: "Harmony Montessori's founder, Auroma Phase 4 homeowner.",
+      width: 500,
+      height: 522,
+    },
+  },
+] as const;
 
 export const faqShared = {
   isPartOfAuroville: {

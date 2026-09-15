@@ -13,8 +13,8 @@ export const PENDING = {
   grihaProjectName: null as string | null,
   /** "Of 200+ Auroma homeowners, [N] have bought more than once." */
   repeatBuyerCount: null as number | null,
-  /** Written consent on file for both owner quotes + portraits (B11/A10). */
-  testimonialConsent: false,
+  /** Written consent on file for all eight owner quotes + portraits (B11/A10) — confirmed 15 Sept 2026. */
+  testimonialConsent: true,
   /** Second floor plan drawing. */
   secondFloorPlanUrl: null as string | null,
   /** Carpet area and plot area, in sq. ft. */

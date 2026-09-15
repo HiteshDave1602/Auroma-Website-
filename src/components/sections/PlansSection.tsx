@@ -12,7 +12,6 @@ const planImageByFloor = [planImages.ground, planImages.first, planImages.second
 export function PlansSection({ id }: { id?: string }) {
   const [active, setActive] = useState(0);
   const floor = plans.floors[active];
-  const areaRow = plans.areaTable[active];
   const image = planImageByFloor[active];
 
   return (
@@ -54,18 +53,18 @@ export function PlansSection({ id }: { id?: string }) {
         <Reveal delay={220}>
           <div
             role="tabpanel"
-            className="mt-10 grid grid-cols-1 gap-8 rounded-2xl border border-slate/10 bg-white p-7 text-left shadow-xl shadow-midnight/5 sm:mt-12 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:gap-10"
+            className="mt-10 grid grid-cols-1 gap-10 rounded-2xl border border-slate/10 bg-white p-7 text-left shadow-xl shadow-midnight/5 sm:mt-12 sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-16"
           >
-            <div className="relative aspect-[3/5] w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-midnight/10">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-xl bg-sand/30 shadow-lg shadow-midnight/10 lg:max-w-none">
               {image ? (
                 <Image
                   key={image.src}
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(min-width: 1024px) 46vw, 90vw"
+                  sizes="(min-width: 1024px) 42vw, 90vw"
                   loading="lazy"
-                  className="object-contain"
+                  className="object-contain p-5 sm:p-7"
                 />
               ) : (
                 <div className="flex h-full w-full flex-col items-center justify-center gap-3 border border-dashed border-slate/30 px-6 text-center">
@@ -86,22 +85,17 @@ export function PlansSection({ id }: { id?: string }) {
               )}
             </div>
 
-            <div className="flex flex-col justify-center">
-              <h3 className="font-label text-[12px] tracking-[0.14em] uppercase text-gold">{floor.label}</h3>
-              <p className="mt-3 font-body text-[14.5px] leading-relaxed text-slate sm:text-[15px]">
+            <div className="lg:pl-4">
+              <span className="block font-display text-5xl leading-none text-gold/20 sm:text-6xl">
+                {String(active + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-label text-[12px] tracking-[0.24em] uppercase text-gold sm:text-[13px]">
+                {floor.label}
+              </h3>
+              <SectionDivider align="start" className="mt-5" />
+              <p className="mt-6 max-w-md font-body text-[15px] leading-relaxed text-slate sm:text-[16px]">
                 {floor.detail}
               </p>
-
-              <div className="mt-8 grid grid-cols-3 gap-3">
-                <FloorStat label="Built-up" value={areaRow.builtUp} />
-                <FloorStat label="Semi-open" value={areaRow.semiOpen} />
-                <FloorStat label="Total" value={areaRow.total} />
-              </div>
-              {"semiOpenNote" in areaRow && areaRow.semiOpenNote && (
-                <p className="mt-3 text-center font-body text-[12px] text-slate/60">
-                  Semi-open: {areaRow.semiOpenNote}
-                </p>
-              )}
             </div>
           </div>
         </Reveal>
@@ -125,17 +119,6 @@ function AreaStat({ label, value }: { label: string; value: string }) {
       <span className="font-display text-3xl text-midnight sm:text-4xl">{value}</span>
       <span className="mt-1 block font-label text-[11px] tracking-[0.14em] uppercase text-slate/70">
         {label}
-      </span>
-    </div>
-  );
-}
-
-function FloorStat({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="rounded-lg border border-slate/10 bg-sand/40 px-4 py-5 text-center transition-colors duration-300 hover:border-gold/30">
-      <span className="block font-display text-xl text-midnight sm:text-2xl">{value.toLocaleString("en-IN")}</span>
-      <span className="mt-1 block font-label text-[9.5px] tracking-[0.1em] uppercase text-slate/70">
-        {label} sq.ft
       </span>
     </div>
   );

@@ -222,3 +222,11 @@ export function IconCheck(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconBolt(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M13 3 L5.5 13.5 H11.5 L10.5 21 L18.5 10 H12.5 Z" strokeLinejoin="round" />
+    </svg>
+  );
+}

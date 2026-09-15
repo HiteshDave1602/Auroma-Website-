@@ -89,6 +89,17 @@ body {
   background-image: radial-gradient(55% 45% at 94% 0%, rgba(184, 146, 42, 0.055) 0%, transparent 60%);
 }
 
+/* Deeper variant of the sand texture for card-heavy sections — an extra
+   center bloom lifts the cards' cream tones off the ground so the section
+   reads with more depth than a flat fill. */
+.bg-specifications-texture {
+  background-color: var(--sand);
+  background-image:
+    radial-gradient(70% 60% at 8% -10%, rgba(184, 146, 42, 0.16) 0%, transparent 60%),
+    radial-gradient(60% 55% at 105% 110%, rgba(46, 74, 90, 0.08) 0%, transparent 65%),
+    radial-gradient(120% 75% at 50% 45%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+
 /* Consistent soft-lift treatment for card/box elements site-wide. */
 .card-lift {
   transition:

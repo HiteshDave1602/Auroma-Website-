@@ -9,13 +9,15 @@ import { HostingSection } from "@/components/sections/HostingSection";
 import { MidCta } from "@/components/sections/MidCta";
 import { ArchitectSection } from "@/components/sections/ArchitectSection";
 import { VillaGallery } from "@/components/sections/VillaGallery";
+import { SpecificationsSection } from "@/components/sections/SpecificationsSection";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { PlansSection } from "@/components/sections/PlansSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { PaymentPlanSection } from "@/components/sections/PaymentPlanSection";
 import { LeadForm } from "@/components/sections/LeadForm";
-import { FaqSection } from "@/components/sections/FaqSection";
+import { TrackRecordSection } from "@/components/sections/TrackRecordSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { AnalyticsBoot } from "@/components/AnalyticsBoot";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { lpB } from "@/content/lp-b";
@@ -24,7 +26,6 @@ import {
   villaImages,
   galleryKicker,
   gallerySupportInvestor,
-  faqShared,
   signaturePlacesEyebrow,
   signaturePlacesHeadline,
   signaturePlaces,
@@ -40,16 +41,6 @@ export const metadata: Metadata = {
   description: lpB.meta.description,
   robots: { index: false, follow: false },
 };
-
-const faqItems = [
-  lpB.faq[0],
-  lpB.faq[1],
-  lpB.faq[2],
-  lpB.faq[3],
-  { q: faqShared.isPartOfAuroville.q, a: faqShared.isPartOfAuroville.aInvestor },
-  lpB.faq[4],
-  { q: faqShared.howManyAvailable.q, a: faqShared.howManyAvailable.a },
-];
 
 export default function HomePage() {
   return (
@@ -85,6 +76,7 @@ export default function HomePage() {
         <MidCta headline={lpB.midCta.headline} body={lpB.midCta.body} cta={lpB.midCta.cta} />
         <ArchitectSection id="architect" />
         <VillaGallery id="gallery" kicker={galleryKicker} support={gallerySupportInvestor} />
+        <SpecificationsSection id="specifications" />
         <SignatureGallery
           id="signature-places"
           eyebrow={signaturePlacesEyebrow}
@@ -111,7 +103,8 @@ export default function HomePage() {
         />
         <PaymentPlanSection id="payment-plan" />
         <LeadForm variant="investor" headline={lpB.form.headline} body={lpB.form.body} />
-        <FaqSection items={faqItems} />
+        <TrackRecordSection id="track-record" />
+        <TestimonialsSection id="testimonials" />
       </main>
 
       <Footer />

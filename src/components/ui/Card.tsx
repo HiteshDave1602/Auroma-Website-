@@ -24,20 +24,33 @@ export function Card({
   );
 }
 
+const badgeTones = {
+  gold: "bg-gold/10 text-gold",
+  midnight: "bg-paper/10 text-paper",
+  // Warm gold-tinted circle with a deep-ink icon — an emblem treatment for
+  // editorial/premium contexts, vs. the flatter monotone `gold` tone above.
+  "gold-deep": "bg-gradient-to-br from-gold/25 to-gold/10 text-midnight ring-1 ring-gold/25",
+} as const;
+
+const badgeSizes = {
+  md: "h-11 w-11",
+  lg: "h-12 w-12",
+} as const;
+
 export function IconBadge({
   children,
   tone = "gold",
+  size = "md",
   className = "",
 }: {
   children: ReactNode;
-  tone?: "gold" | "midnight";
+  tone?: keyof typeof badgeTones;
+  size?: keyof typeof badgeSizes;
   className?: string;
 }) {
-  const toneClasses =
-    tone === "gold" ? "bg-gold/10 text-gold" : "bg-paper/10 text-paper";
   return (
     <span
-      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${toneClasses} ${className}`}
+      className={`flex ${badgeSizes[size]} shrink-0 items-center justify-center rounded-full ${badgeTones[tone]} ${className}`}
       aria-hidden="true"
     >
       {children}
