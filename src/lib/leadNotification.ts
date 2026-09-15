@@ -1,20 +1,19 @@
+import nodemailer from "nodemailer";
 import type { LeadFormData, PageVariant } from "@/content/types";
 
 /**
- * Sends a "new lead" notification email via Resend (resend.com) — a
- * transactional email API designed for server-to-server use (unlike
- * Web3Forms, whose free tier rejects non-browser callers with a 403; see
- * https://docs.web3forms.com/getting-started/troubleshooting.md). Requires
- * RESEND_API_KEY and RESEND_FROM_EMAIL to be set (see
- * web/.env.local.example); silently no-ops when the key isn't, so local dev
- * without it never breaks.
+ * Sends a "new lead" notification email by connecting directly to Titan
+ * Mail's SMTP server (Titan hosts email for this domain via BigRock) and
+ * sending as hello@auromaholidayvillas.com — no third-party email API
+ * involved. Requires SMTP_HOST, SMTP_PORT, SMTP_USER and SMTP_PASSWORD to be
+ * set (see web/.env.local.example); silently no-ops when they aren't, so
+ * local dev without them never breaks.
  *
  * This must never throw — it is fired from the lead API route with `after()`
- * so a flaky/misconfigured email provider can never delay or fail the lead
+ * so a flaky/misconfigured mail server can never delay or fail the lead
  * submission the visitor sees.
  */
 
-const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const DEFAULT_TO_EMAIL = "hello@auromaholidayvillas.com";
 
 interface LeadNotificationInput {
@@ -40,20 +39,23 @@ export async function sendLeadNotificationEmail({
   sourcePage,
   submittedAt,
 }: LeadNotificationInput): Promise<void> {
-  const apiKey = process.env.RESEND_API_KEY;
-  // TEMP DEBUG — remove once production email delivery is confirmed working.
-  console.log(
-    "[lead-email][debug] RESEND_API_KEY at runtime:",
-    apiKey ? `defined (len=${apiKey.length}, starts=${apiKey.slice(0, 4)}…)` : "UNDEFINED",
-  );
-  if (!apiKey) {
-    console.warn("[lead-email] RESEND_API_KEY is not set — skipping email notification.");
-    return;
-  }
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPassword = process.env.SMTP_PASSWORD;
 
-  const fromEmail = process.env.RESEND_FROM_EMAIL;
-  if (!fromEmail) {
-    console.warn("[lead-email] RESEND_FROM_EMAIL is not set — skipping email notification.");
+  // TEMP DEBUG — remove once production email delivery is confirmed working.
+  console.log("[lead-email][debug] SMTP env at runtime:", {
+    host: smtpHost || "UNDEFINED",
+    port: smtpPort || "UNDEFINED",
+    user: smtpUser || "UNDEFINED",
+    password: smtpPassword ? `defined (len=${smtpPassword.length})` : "UNDEFINED",
+  });
+
+  if (!smtpHost || !smtpPort || !smtpUser || !smtpPassword) {
+    console.warn(
+      "[lead-email] SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASSWORD is not set — skipping email notification.",
+    );
     return;
   }
 
@@ -91,38 +93,38 @@ export async function sendLeadNotificationEmail({
     )
     .join("")}</table>`;
 
-  const payload = {
-    from: `Auroma Holiday Villas Website <${fromEmail}>`,
-    to: [toEmail],
-    subject: `New enquiry — ${data.fullName || "Website visitor"} (Auroma Holiday Villas)`,
-    text: textBody,
-    html: htmlBody,
-  };
+  const port = Number.parseInt(smtpPort, 10);
 
   try {
-    // TEMP DEBUG — remove once production email delivery is confirmed working.
-    console.log("[lead-email][debug] calling Resend API now", { endpoint: RESEND_ENDPOINT, to: toEmail });
-
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port,
+      // Titan Mail: port 465 is implicit SSL, port 587 is STARTTLS.
+      secure: port === 465,
+      auth: {
+        user: smtpUser,
+        pass: smtpPassword,
       },
-      body: JSON.stringify(payload),
     });
 
-    const responseBody = await res.text().catch(() => "");
     // TEMP DEBUG — remove once production email delivery is confirmed working.
-    console.log("[lead-email][debug] Resend API responded", {
-      status: res.status,
-      ok: res.ok,
-      body: responseBody,
+    console.log("[lead-email][debug] sending via SMTP now", { host: smtpHost, port, to: toEmail });
+
+    const info = await transporter.sendMail({
+      from: `Auroma Holiday Villas Website <${smtpUser}>`,
+      to: toEmail,
+      subject: `New enquiry — ${data.fullName || "Website visitor"} (Auroma Holiday Villas)`,
+      text: textBody,
+      html: htmlBody,
     });
 
-    if (!res.ok) {
-      console.error("[lead-email] Resend returned an error response", res.status, responseBody);
-    }
+    // TEMP DEBUG — remove once production email delivery is confirmed working.
+    console.log("[lead-email][debug] SMTP server responded", {
+      messageId: info.messageId,
+      accepted: info.accepted,
+      rejected: info.rejected,
+      response: info.response,
+    });
   } catch (err) {
     console.error("[lead-email] Failed to send lead notification email", err);
   }
