@@ -3,16 +3,19 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { IconBadge } from "@/components/ui/Card";
 import {
-  IconCoolBreeze,
+  IconEcoMaterial,
   IconSolar,
   IconWaterDrop,
   IconSprout,
-  IconEcoMaterial,
+  IconGreenGarden,
   IconDaylight,
   IconBirdHerb,
 } from "@/components/ui/icons";
 
-const icons = [IconCoolBreeze, IconSolar, IconWaterDrop, IconSprout, IconEcoMaterial, IconDaylight, IconBirdHerb];
+// Ordered to match the brochure's seven design-feature points (p.10): eco
+// materials, solar, rainwater harvesting, natural cooling, green gardens,
+// bright & airy rooms, birds/shade/herbs.
+const icons = [IconEcoMaterial, IconSolar, IconWaterDrop, IconSprout, IconGreenGarden, IconDaylight, IconBirdHerb];
 
 export function DesignFeaturesSection({
   kicker,
@@ -42,7 +45,7 @@ export function DesignFeaturesSection({
           <SectionDivider className="mt-7 sm:mt-8" />
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-2 gap-4 sm:mt-16 sm:grid-cols-3 sm:gap-5 md:grid-cols-4 lg:grid-cols-6">
+        <ul className="mt-14 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
           {points.map((point, i) => {
             const Icon = icons[i % icons.length];
             return (
@@ -59,7 +62,7 @@ export function DesignFeaturesSection({
         </ul>
 
         <Reveal delay={160 + points.length * 55 + 100}>
-          <p className="mt-14 font-display text-xl italic text-gold sm:text-2xl">{closing}</p>
+          <p className="mt-14 font-display text-xl font-bold text-gold sm:text-2xl">{closing}</p>
         </Reveal>
       </div>
     </section>

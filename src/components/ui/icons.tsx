@@ -143,6 +143,16 @@ export function IconSofa(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function IconGreenGarden(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 14.5 C4 17.8 6.7 20 10.5 20 H15 C17 20 18.5 18.6 18.5 17.1 C18.5 15.6 17 14.6 15.5 15.1 L10.8 16.7" />
+      <path d="M4 14.5 C4 11.3 5.8 9.3 8.5 9.3 C9.6 9.3 10.6 9.9 11.1 11" />
+      <path d="M13.8 8.3 C13.8 5.5 11.4 3.8 8.6 4 C8.7 6.6 10.7 8.5 13.8 8.3 Z" />
+    </svg>
+  );
+}
+
 export function IconBirdHerb(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} {...props}>

@@ -417,6 +417,21 @@ export const specifications = {
   note: "Specifications listed are indicative and subject to change, availability and statutory approvals.",
 } as const;
 
+// Brochure p.10 — the seven design-feature points, verbatim.
+export const designFeaturesEyebrow = "Sustainability";
+export const designFeaturesHeadline = "Design Features";
+export const designFeatures = [
+  "Eco-Friendly Materials",
+  "Solar reduces electricity bill",
+  "Rain water harvesting",
+  "Natural Cooling",
+  "Green gardens",
+  "Naturally bright & airy rooms",
+  "Birds, shade and fresh herbs",
+];
+export const designFeaturesClosing =
+  "These are the same principles that made Gratitude Ecovilla India's first House of Tomorrow.";
+
 export const locationMapImage = {
   src: "/images/location/location-map.png",
   alt: "Illustrated map showing Auroma Holiday Villa at the centre, with pins and radius circles pointing to Auroville, University & Hospital, and Pondicherry.",

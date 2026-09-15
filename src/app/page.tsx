@@ -10,6 +10,7 @@ import { MidCta } from "@/components/sections/MidCta";
 import { ArchitectSection } from "@/components/sections/ArchitectSection";
 import { VillaGallery } from "@/components/sections/VillaGallery";
 import { SpecificationsSection } from "@/components/sections/SpecificationsSection";
+import { DesignFeaturesSection } from "@/components/sections/DesignFeaturesSection";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { PlansSection } from "@/components/sections/PlansSection";
@@ -26,6 +27,10 @@ import {
   villaImages,
   galleryKicker,
   gallerySupportInvestor,
+  designFeaturesEyebrow,
+  designFeaturesHeadline,
+  designFeatures,
+  designFeaturesClosing,
   signaturePlacesEyebrow,
   signaturePlacesHeadline,
   signaturePlaces,
@@ -77,6 +82,13 @@ export default function HomePage() {
         <ArchitectSection id="architect" />
         <VillaGallery id="gallery" kicker={galleryKicker} support={gallerySupportInvestor} />
         <SpecificationsSection id="specifications" />
+        <DesignFeaturesSection
+          id="design-features"
+          kicker={designFeaturesEyebrow}
+          headline={designFeaturesHeadline}
+          points={[...designFeatures]}
+          closing={designFeaturesClosing}
+        />
         <SignatureGallery
           id="signature-places"
           eyebrow={signaturePlacesEyebrow}
