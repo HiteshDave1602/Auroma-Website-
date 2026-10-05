@@ -46,6 +46,13 @@ export const villaImages = {
     width: 1600,
     height: 900,
   },
+  heroFront: {
+    src: "/images/villa/hero-front.jpg",
+    alt: "Auroma Holiday Villa front view — a three-storey home with glass gables, planted balconies, timber pergola and stone boundary wall.",
+    caption: undefined,
+    width: 1091,
+    height: 1441,
+  },
   groundFloorPlanDetail: {
     src: "/images/villa/ground-floor-plan-detail.jpg",
     alt: "Ground floor plan detail showing the living areas, courtyard, bathrooms and planted plunge pool edge.",
@@ -390,6 +397,125 @@ export const specifications = {
   note: "Specifications listed are indicative and subject to change, availability and statutory approvals.",
 } as const;
 
+// Brochure p.3 — Amenities, verbatim.
+export const amenities = {
+  eyebrow: "Amenities",
+  headline: "Room for everyone you love.",
+  headlineItalic: "Space for the moments that matter.",
+  stats: [
+    { value: "3", label: "Bedrooms" },
+    { value: "4", label: "Washrooms" },
+    { value: "8", label: "Guests" },
+    { value: "1", label: "Private Pool", accent: true },
+  ],
+  features: [
+    {
+      label: "Designer Living · Kitchen · Dining",
+      body: "One flowing, light-filled space where long breakfasts roll into lazy lunches and lingering dinners.",
+    },
+    {
+      label: "Indoor Landscaped Garden",
+      body: "A living courtyard at the heart of the home — green you can see, touch and breathe from every floor.",
+    },
+    {
+      label: "3 Bedrooms · 4 Washrooms · Sleeps 8",
+      body: "Room for the whole family, or two couples and the kids — every bedroom a quiet retreat of its own.",
+    },
+    {
+      label: "Private Swimming Pool",
+      body: "Your own plunge pool beneath a cascading stone water wall. Morning laps, sunset dips — never shared.",
+    },
+    {
+      label: "Private Game Room",
+      body: "Pool table, carrom and chess under a timber pergola, looking out over the treetops.",
+    },
+  ],
+  images: [
+    { image: villaImages.livingRoom, caption: "Light-filled living" },
+    { image: villaImages.gameRoom, caption: "Game room with a view" },
+  ],
+  closing: "Made for long weekends, family holidays — and five-star guest reviews.",
+} as const;
+
+// Brochure p.4 — Key Design Elements, verbatim.
+export const keyDesignElements = {
+  eyebrow: "Key Design Elements",
+  headline: "Not just built.",
+  headlineItalic: "Architect-designed.",
+  intro:
+    "Every line of this villa is drawn by Ar. Trupti Doshi — 25+ years of sustainable, wellness-centred architecture, now shaped into a holiday home of your own.",
+  image: villaImages.exteriorFront,
+  elements: [
+    {
+      label: "Designer Architectural Villa",
+      body: "A one-of-a-kind silhouette of timber gables, deep balconies and hand-painted murals — a home that turns heads from the lane.",
+    },
+    {
+      label: "Sustainable Eco-Friendly Materials",
+      body: "Chosen for how they breathe, age gracefully and sit lightly on the earth.",
+    },
+    {
+      label: "Vaastu Compliant",
+      body: "Orientation, entrances and rooms aligned with time-honoured principles of balance and harmony.",
+    },
+    {
+      label: "Naturally Bright & Airy Rooms",
+      body: "Generous openings and cross-ventilation invite daylight and the sea breeze in, all day long.",
+    },
+    {
+      label: "Natural Finishes — Stone, Earth, Lime",
+      body: "Surfaces that are cool underfoot, warm to the touch and honest to the eye.",
+    },
+  ],
+  palette: [
+    { label: "Stone", color: "#a39e95" },
+    { label: "Earth", color: "#b0653d" },
+    { label: "Lime", color: "#ede6d6" },
+  ],
+  quote: "“Architecture that feels as good as it looks.”",
+} as const;
+
+// Brochure p.5 — Eco-Friendly Features, verbatim. Listed in the brochure's
+// row-by-row reading order so the two-column grid matches its layout.
+export const ecoFeatures = {
+  eyebrow: "Eco-Friendly Features",
+  headline: "Luxury that gives back",
+  headlineItalic: "to the earth.",
+  intro:
+    "Lower running costs for you. A lighter footprint for the planet. And a story your guests will love to tell.",
+  images: [
+    { image: villaImages.solarRoofTerrace, caption: "Solar-powered rooftop" },
+    { image: villaImages.exteriorSideAngle, caption: "Green by design" },
+  ],
+  features: [
+    { key: "solar", label: "Solar Panels", body: "Rooftop solar that trims your electricity bills, month after month." },
+    {
+      key: "cooling",
+      label: "Natural Cooling",
+      body: "Eco-friendly bricks keep interiors naturally cooler — more comfort, less air-conditioning.",
+    },
+    { key: "hotWater", label: "24×7 Solar Hot Water", body: "Hot water on tap in every washroom, powered by the sun." },
+    {
+      key: "rainwater",
+      label: "Rainwater Harvesting",
+      body: "Every monsoon shower is captured to recharge the ground beneath your home.",
+    },
+    { key: "ev", label: "EV Charging Point", body: "Plug in when you arrive. Fully charged for the drive home." },
+    {
+      key: "compost",
+      label: "Kitchen Waste to Garden Manure",
+      body: "Today’s peels feed tomorrow’s herbs — a garden that sustains itself.",
+    },
+    {
+      key: "drinkingWater",
+      label: "Pure, Healthy Dynamised Drinking Water",
+      body: "Clean, energised drinking water for the whole household.",
+    },
+  ],
+  closing: ["Lower bills.", "Lighter footprint."],
+  closingItalic: "Happier guests.",
+} as const;
+
 // Brochure p.10 — the seven design-feature points, verbatim.
 export const designFeaturesEyebrow = "Sustainability";
 export const designFeaturesHeadline = "Design Features";
@@ -404,6 +530,88 @@ export const designFeatures = [
 ];
 export const designFeaturesClosing =
   "These are the same principles that made Gratitude Ecovilla India's first House of Tomorrow.";
+
+// Brochure p.6 — Location Advantages, verbatim.
+export const locationAdvantages = {
+  eyebrow: "Location Advantages",
+  headline: "Where the forest",
+  headlineItalic: "meets the sea.",
+  intro:
+    "A green pocket between Auroville and Pondicherry — close to everything that matters, far from everything that doesn’t.",
+  images: [
+    {
+      src: "/images/signature-places/matrimandir.jpg",
+      alt: "Matrimandir, Auroville's golden geodesic meditation dome set in landscaped gardens.",
+    },
+    {
+      src: "/images/signature-places/chunnambar-boat-house.jpg",
+      alt: "Aerial view of the sandbar where the Chunnambar backwaters meet the sea near Pondicherry.",
+    },
+    {
+      src: "/images/signature-places/promenade.jpg",
+      alt: "Pondicherry's seaside Promenade, with the coastline curving into the distance.",
+    },
+  ],
+  distances: [
+    { time: "5 min", place: "Pondicherry University" },
+    { time: "10 min", place: "Matrimandir, Auroville" },
+    { time: "10 min", place: "PIMS Hospital" },
+    { time: "15 min", place: "Pondicherry" },
+  ],
+  advantages: [
+    { label: "360° Greenery", body: "Wake to birdsong and a canopy of green on every side." },
+    { label: "Near Auroville", body: "Just 10 minutes from the Matrimandir and the heart of Auroville." },
+    {
+      label: "State-of-the-Art hospitals",
+      body: "PIMS is 10 minutes away, with JIPMER and more within easy reach.",
+    },
+    {
+      label: "Close to the beaches",
+      body: "Sunrise walks at Auroville, Serenity, Repos and Paradise beaches.",
+    },
+    { label: "Close to pondicherry", body: "15 minutes to the French Quarter, the Promenade and its cafés." },
+    {
+      label: "Birds, Shade & Fresh Herbs",
+      body: "Shady trees, a kitchen herb garden and a daily chorus of birds.",
+    },
+  ],
+  aqi: {
+    label: "AQI",
+    value: "<50",
+    rating: "Good",
+    headline: "Air you can breathe deeply",
+    body: "Air quality consistently below 50 firmly in the ‘Good’ range. Fresh air, every single day.",
+  },
+  cycling: {
+    src: "/images/signature-experiences/auroville-cycling-trail.jpg",
+    alt: "A group cycling along a red-earth forest trail in Auroville.",
+    caption: "Auroville Cycling Trails",
+    width: 1251,
+    height: 870,
+  },
+} as const;
+
+// Brochure p.8 — site location aerials, verbatim. The section renders only
+// once all three photographs exist under public/ (see SiteLocationSection).
+export const siteLocation = {
+  eyebrow: "360° Greenery",
+  body: "A thoughtfully designed home in the heart of Auroville’s green surroundings.",
+  cta: "View site location",
+  aerial: {
+    src: "/images/site/site-aerial.jpg",
+    alt: "Top-down aerial view of the villa plot, outlined with a dotted line, among tree-lined plots beside Auroma Homes Phase III.",
+  },
+  details: [
+    {
+      src: "/images/site/site-plot.jpg",
+      alt: "Low aerial view of the outlined villa plot beside a completed Auroma building, with dense greenery beyond.",
+    },
+    {
+      src: "/images/site/site-approach.jpg",
+      alt: "High aerial view of the approach road leading to the site, surrounded by forest canopy on every side.",
+    },
+  ],
+} as const;
 
 export const locationMapImage = {
   src: "/images/location/location-map.png",
@@ -637,9 +845,10 @@ export const plans = {
   ],
   // Official Area Statement (Ground + 2 Floors), supersedes BUILD-SPEC v3 §5.9.
   areas: {
-    builtUp: "2,300 sq. ft.",
-    semiOpen: "800 sq. ft.",
-    total: "3,100 sq. ft.",
+    plot: "1,775 sq. ft.",
+    builtUp: "2,290 sq. ft.",
+    semiOpen: "815 sq. ft.",
+    total: "3,105 sq. ft.",
   },
   areaTable: [
     { floor: "Ground floor", builtUp: 900, semiOpen: 340, total: 1240, semiOpenNote: "plunge pool 195 · parking 145" },
@@ -748,15 +957,15 @@ export const testimonials = [
   },
   {
     quote:
-      "Our home feels deeply connected to nature, with verandas, patios and large windows opening to the surrounding greenery. It is warm and welcoming, an open-hearted space where friends and family can gather, stay, connect and feel completely at home together.",
-    attribution: "Suresh Kanha",
-    role: "Asst. Professor, IIIT Hyderabad",
+      "Ecology and value creation have always been central to my vision. What I value about Trupti Doshi is her ability to beautifully intertwine ecology and architecture creating homes that coexist with the land, water and migratory birdlife rather than disrupting them. Her ability to bring coherence between land, building and construction is extraordinary.",
+    attribution: "Sumedh Reddy",
+    role: "Fintech Entrepreneur",
     phase: "Phase 4",
     photo: {
-      src: "/images/testimonials/suresh.jpg",
-      alt: "Suresh Kanha, Auroma Phase 4 homeowner.",
+      src: "/images/testimonials/sumedh.jpg",
+      alt: "Sumedh Reddy, Auroma Phase 4 homeowner.",
       width: 500,
-      height: 549,
+      height: 500,
     },
   },
   {

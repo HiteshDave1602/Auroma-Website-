@@ -30,6 +30,8 @@ export const PENDING = {
    * the FAQ answer must not be published until this is set.
    */
   reraOpinionConfirmed: false,
+  /** Google Maps link behind the "View site location" button (brochure p.8). */
+  siteLocationUrl: null as string | null,
   /** Contact email for the footer. */
   reachUsEmail: "hello@auromaholidayvillas.com" as string | null,
 } as const;

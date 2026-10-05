@@ -38,7 +38,9 @@ export function PaymentPlanSection({ id }: { id?: string }) {
         </Reveal>
 
         <Reveal delay={260}>
-          <p className="mt-6 font-body text-[12.5px] text-slate/60">
+          <p className="mt-8 font-body text-[17px] leading-relaxed text-gold-light sm:text-xl">
+            Timeline of Handover 15-18 months from date of signing,
+            <br />
             Payments raised against construction progress, in the stages above.
           </p>
         </Reveal>

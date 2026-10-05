@@ -16,6 +16,7 @@ export type AnalyticsEvent =
   | "brochure_form_start"
   | "brochure_download" // gated brochure PDF download
   | "whatsapp_open"
+  | "social_open"
   | "scroll_50"
   | "scroll_90"
   | "gallery_open";

@@ -240,3 +240,57 @@ export function IconBolt(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconSolarHotWater(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3.5 14 H14.5 M5 14 V12 H13 V14" />
+      <path d="M5 14 V17 C5 18.2 6 19 7.2 19 H11 C12.2 19 13 18.2 13 17 V14" />
+      <path d="M9 19 V21" />
+      <circle cx="17.5" cy="6.5" r="1.8" />
+      <path d="M17.5 2.8 V3.6 M20.6 4.2 L20 4.8 M14.4 4.2 L15 4.8 M21.2 6.5 H20.4" />
+    </svg>
+  );
+}
+
+export function IconRain(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M7 14 H17 C19 14 20.5 12.6 20.5 10.8 C20.5 9 19 7.6 17.2 7.7 C16.6 5.5 14.6 4 12.3 4 C9.6 4 7.4 6 7.2 8.6 C5.2 8.7 3.5 10.1 3.5 11.4 C3.5 12.9 5 14 7 14 Z" />
+      <path d="M8.5 17 L8 19 M12 17 L11.5 19 M15.5 17 L15 19" />
+    </svg>
+  );
+}
+
+export function IconEvCharge(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 20 V5 C5 4 5.8 3.5 6.6 3.5 H12.4 C13.2 3.5 14 4 14 5 V20" />
+      <path d="M3.5 20 H15.5" />
+      <path d="M10.2 7 L8 11 H11 L8.8 15" />
+      <path d="M14 10 H16.5 C17.3 10 18 10.7 18 11.5 V16.5 C18 17.3 18.7 18 19.5 18 C20.3 18 21 17.3 21 16.5 V9 L19.5 7" />
+    </svg>
+  );
+}
+
+export function IconCompostBin(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4.5 7 H19.5 M10 7 V5 H14 V7" />
+      <path d="M6 7 L7 20 H17 L18 7" />
+      <path d="M12 17 V13.5 M12 13.5 C12 11.8 10.4 11 9 11.3 C9.2 12.9 10.5 13.8 12 13.5 Z M12 14.5 C12 13 13.4 12.3 14.8 12.6 C14.6 14 13.4 14.8 12 14.5 Z" />
+    </svg>
+  );
+}
+
+export function IconBreezeLeaf(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M15 20 V12" />
+      <path d="M15 12 C15 9 17.5 7.5 20 8 C19.8 10.8 17.6 12.4 15 12 Z" />
+      <path d="M15 14.5 C15 12.4 13 11.3 11 11.8 C11.3 13.8 13 15 15 14.5 Z" />
+      <path d="M3 8 C5 8 5.8 6.5 5 5.4 C4.2 4.4 2.8 5 3 6.2" />
+      <path d="M3 11 H9 C10.5 11 11 12.6 10 13.4" />
+    </svg>
+  );
+}

@@ -101,7 +101,8 @@ export function PlansSection({ id }: { id?: string }) {
         </Reveal>
 
         <Reveal delay={260}>
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+            <AreaStat label="Plot area" value={plans.areas.plot} />
             <AreaStat label="Built-up area" value={plans.areas.builtUp} />
             <AreaStat label="Semi-open" value={plans.areas.semiOpen} />
             <AreaStat label="Total" value={plans.areas.total} />

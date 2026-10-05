@@ -10,8 +10,13 @@ import { MidCta } from "@/components/sections/MidCta";
 import { ArchitectSection } from "@/components/sections/ArchitectSection";
 import { VillaGallery } from "@/components/sections/VillaGallery";
 import { SpecificationsSection } from "@/components/sections/SpecificationsSection";
+import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
+import { KeyDesignElementsSection } from "@/components/sections/KeyDesignElementsSection";
+import { EcoFeaturesSection } from "@/components/sections/EcoFeaturesSection";
 import { DesignFeaturesSection } from "@/components/sections/DesignFeaturesSection";
 import { LocationSection } from "@/components/sections/LocationSection";
+import { LocationAdvantagesSection } from "@/components/sections/LocationAdvantagesSection";
+import { SiteLocationSection } from "@/components/sections/SiteLocationSection";
 import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { PlansSection } from "@/components/sections/PlansSection";
 import { PricingSection } from "@/components/sections/PricingSection";
@@ -63,7 +68,7 @@ export default function HomePage() {
           body={lpB.hero.body}
           priceLine={lpB.hero.priceLine}
           cta={lpB.hero.cta}
-          image={villaImages.exteriorFront}
+          image={villaImages.heroFront}
         />
         <CredibilityStrip items={credibilityItems.investor} />
         <TheCase
@@ -82,6 +87,9 @@ export default function HomePage() {
         <ArchitectSection id="architect" />
         <VillaGallery id="gallery" kicker={galleryKicker} support={gallerySupportInvestor} />
         <SpecificationsSection id="specifications" />
+        <AmenitiesSection id="amenities" />
+        <KeyDesignElementsSection id="key-design-elements" />
+        <EcoFeaturesSection id="eco-friendly-features" />
         <DesignFeaturesSection
           id="design-features"
           kicker={designFeaturesEyebrow}
@@ -103,7 +111,9 @@ export default function HomePage() {
           items={signatureExperiences}
           tone="midnight"
         />
+        <LocationAdvantagesSection id="location-advantages" />
         <LocationSection id="location" comeForLabel="What your guests will come for" />
+        <SiteLocationSection id="site-location" />
         <PlansSection id="plans" />
         <PricingSection
           id="pricing"
