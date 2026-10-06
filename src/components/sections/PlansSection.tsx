@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { plans, planImages } from "@/content/shared";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
-const planImageByFloor = [planImages.ground, planImages.first, planImages.second];
+const planImageByFloor = [planImages.ground, planImages.first, planImages.second, planImages.terrace];
 
 export function PlansSection({ id }: { id?: string }) {
   const [active, setActive] = useState(0);

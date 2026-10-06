@@ -6,13 +6,13 @@ import { Hero } from "@/components/sections/Hero";
 import { CredibilityStrip } from "@/components/sections/CredibilityStrip";
 import { TheCase } from "@/components/sections/TheCase";
 import { HostingSection } from "@/components/sections/HostingSection";
+import { WellnessShiftSection } from "@/components/sections/WellnessShiftSection";
+import { WellnessDesignSection } from "@/components/sections/WellnessDesignSection";
 import { MidCta } from "@/components/sections/MidCta";
-import { ArchitectSection } from "@/components/sections/ArchitectSection";
+import { DesignedBySection } from "@/components/sections/DesignedBySection";
+import { SustainabilitySection } from "@/components/sections/SustainabilitySection";
 import { VillaGallery } from "@/components/sections/VillaGallery";
 import { SpecificationsSection } from "@/components/sections/SpecificationsSection";
-import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
-import { KeyDesignElementsSection } from "@/components/sections/KeyDesignElementsSection";
-import { EcoFeaturesSection } from "@/components/sections/EcoFeaturesSection";
 import { DesignFeaturesSection } from "@/components/sections/DesignFeaturesSection";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { LocationAdvantagesSection } from "@/components/sections/LocationAdvantagesSection";
@@ -24,6 +24,7 @@ import { PaymentPlanSection } from "@/components/sections/PaymentPlanSection";
 import { LeadForm } from "@/components/sections/LeadForm";
 import { TrackRecordSection } from "@/components/sections/TrackRecordSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { ArchitectSection } from "@/components/sections/ArchitectSection";
 import { AnalyticsBoot } from "@/components/AnalyticsBoot";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { lpB } from "@/content/lp-b";
@@ -73,6 +74,7 @@ export default function HomePage() {
         <CredibilityStrip items={credibilityItems.investor} />
         <TheCase
           id="the-case"
+          kicker={lpB.theCase.kicker}
           headline={lpB.theCase.headline}
           body={lpB.theCase.body}
           closing={lpB.theCase.closing}
@@ -83,13 +85,13 @@ export default function HomePage() {
           headline={lpB.hosting.headline}
           points={[...lpB.hosting.points]}
         />
+        <WellnessShiftSection id="wellness-shift" {...lpB.wellnessShift} />
+        <WellnessDesignSection id="wellness-design-features" {...lpB.wellnessDesign} />
         <MidCta headline={lpB.midCta.headline} body={lpB.midCta.body} cta={lpB.midCta.cta} />
-        <ArchitectSection id="architect" />
+        <DesignedBySection id="designed-by" {...lpB.designedBy} />
+        <SustainabilitySection id="sustainability" {...lpB.sustainability} />
         <VillaGallery id="gallery" kicker={galleryKicker} support={gallerySupportInvestor} />
         <SpecificationsSection id="specifications" />
-        <AmenitiesSection id="amenities" />
-        <KeyDesignElementsSection id="key-design-elements" />
-        <EcoFeaturesSection id="eco-friendly-features" />
         <DesignFeaturesSection
           id="design-features"
           kicker={designFeaturesEyebrow}
@@ -127,6 +129,7 @@ export default function HomePage() {
         <LeadForm variant="investor" headline={lpB.form.headline} body={lpB.form.body} />
         <TrackRecordSection id="track-record" />
         <TestimonialsSection id="testimonials" />
+        <ArchitectSection id="the-architect" />
       </main>
 
       <Footer />

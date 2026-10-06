@@ -20,9 +20,14 @@ export const lpB = {
   },
 
   theCase: {
-    headline: "Want a holiday home that doesn't sit empty?",
-    body: "You'll use it a few weekends a year. The rest of the time it stays locked — and you're far away.",
-    closing: "So we built it to be used. You stay when you want. Guests stay when you don't. And we'll introduce you to the people in Auroville who run it for you.",
+    kicker: ["AUROMA PHASE V", "WELLNESS VILLAS"],
+    headline: {
+      line1: "Have you ever dreamt of owning",
+      line2Lead: "a",
+      line2Accent: "true Wellness Home?",
+    },
+    body: "Designed by one of India’s most celebrated sustainable architects —\nminutes from Auroville, India’s most sustainable wellness eco-city.",
+    closing: ["For your health.", "For your holidays.", "For Airbnb returns."],
   },
 
   hosting: {
@@ -56,6 +61,127 @@ export const lpB = {
     ],
   },
 
+  // Brochure p.3 — "The Wellness Shift". Copy and figures verbatim.
+  wellnessShift: {
+    kicker: "The Wellness Shift",
+    headlineLine1: "Where you live is now your",
+    headlineLine2: "most powerful health decision.",
+    body: "Across the world — and rapidly in India — buyers are choosing homes that make them healthier, not just homes that look good. Wellness real estate is the fastest-growing sector of the global wellness economy.",
+    chart: {
+      title: "Global Wellness Real Estate Market",
+      subtitle: "US$, Global Wellness Institute",
+      bars: [
+        { year: "2017", label: "$151 B", value: 151, forecast: false },
+        { year: "2025", label: "$876 B", value: 876, forecast: false },
+        { year: "2030 (forecast)", label: "$1.8 T", value: 1800, forecast: true },
+      ],
+      highlight: "5.8×",
+      highlightBody: "growth since 2017 — and forecast to double again by 2030.",
+      highlightNote: "In 2025 alone it grew 23%, while global construction grew 3%.",
+    },
+    stats: [
+      {
+        figure: "26.5%",
+        tag: "a year",
+        body: "Growth of India's wellness real estate market (2019–2025) — now a $20.5 billion market.",
+      },
+      {
+        figure: "10–25%",
+        tag: "premium",
+        body: "The price premium wellness-focused homes can command over conventional homes.",
+      },
+      {
+        figure: "80–90%",
+        tag: "of health",
+        body: "Of our disease risk, health outcomes and longevity are shaped by environment and lifestyle — not genes.",
+      },
+      {
+        figure: "~90%",
+        tag: "indoors",
+        body: "Of our time is spent indoors. The home you choose quietly shapes your health, every day.",
+      },
+    ],
+    closingLine1: "Auroma Wellness Villas are designed for this shift —",
+    closingLine2: "a home that cares for you, and an asset in the fastest-growing sector of the wellness economy.",
+    sources:
+      "Sources: Global Wellness Institute — “Wellness Real Estate Market Reaches $876 Billion—Forecast to Hit $1.8 Trillion by 2030” (May 2026) and GWI wellness real estate research; US Environmental Protection Agency (time spent indoors).",
+  },
+
+  // Brochure p.4 — "Wellness Design Features". Copy verbatim.
+  wellnessDesign: {
+    kicker: "Wellness Design Features",
+    headlineLine1: "A home designed to make you feel better.",
+    headlineLine2: "Every single day.",
+    specLine: ["3 Bedrooms", "4 Washrooms", "Sleeps 8", "Private Pool", "Game Room"],
+    images: [
+      { key: "livingRoom", caption: "Light-filled living" },
+      { key: "bedroomSuite", caption: "Morning-lit bedrooms" },
+      { key: "poolCourtyard", caption: "Your private plunge pool" },
+    ],
+    features: [
+      { icon: "light", title: "Light", body: "Naturally bright rooms and morning light in every bedroom — to keep your body clock in rhythm." },
+      { icon: "air", title: "Air", body: "Cross-ventilated rooms and an open courtyard draw in fresh air, on a site where AQI stays below 50." },
+      { icon: "cool", title: "Cool", body: "Eco-friendly brick walls keep interiors up to 8°C cooler — comfort without leaning on the AC." },
+      { icon: "sleep", title: "Sleep", body: "Three ensuite bedrooms, each with a planted balcony, garden views and the calm of a green neighbourhood." },
+      { icon: "water", title: "Water", body: "Pure, dynamised drinking water, 24×7 solar hot water and a freestanding soaking tub." },
+      { icon: "nature", title: "Nature", body: "An indoor landscaped garden at the heart of the home — and 360° greenery all around it." },
+      { icon: "nourish", title: "Nourish", body: "A kitchen herb garden, fresh organic produce from Auroville's farms and a kitchen made for cooking fresh." },
+      { icon: "move", title: "Move", body: "Morning laps in your private plunge pool, yoga on the terrace, cycling trails through the forest." },
+      { icon: "calm", title: "Calm", body: "Vaastu-aligned spaces, natural stone, earth and lime finishes — and Auroville's yoga and sound healing minutes away." },
+      { icon: "connect", title: "Connect", body: "Open living, kitchen and dining, and a private game room — space to reconnect with the people you love." },
+    ],
+    closing: "Ten ways this home looks after you — whether you live here, holiday here, or host here.",
+  },
+
+  // Brochure p.5 — "Designed by Ar. Trupti Doshi". Copy verbatim.
+  designedBy: {
+    siteTag: "The Site · Chosen for 360° Greenery",
+    kicker: "Designed by Ar. Trupti Doshi",
+    headlineLine1: "Designed by one of India's most",
+    headlineLine2: "celebrated sustainable architects.",
+    stats: [
+      { figure: "25+", label: "years of sustainable practice" },
+      { figure: "Top 10", label: "Eco-Architects of India" },
+      { figure: "Advisor", label: "Govt. of India Green Building Policy" },
+      { figure: "India's 1st", label: "House of Tomorrow — Gratitude Ecovilla" },
+    ],
+    methodTitle: "Her wellness design method",
+    method: [
+      { title: "Choose the site", body: "Every Auroma home begins with land wrapped in 360° greenery, clean air (AQI below 50) and the calm of Auroville." },
+      { title: "Shape it with the climate", body: "Orientation, cross-ventilation, daylight and Vaastu are designed together — so the house cools, lights and breathes itself." },
+      { title: "Build with nature", body: "Eco-friendly bricks, stone, earth and lime — natural, breathable materials chosen for your health as much as for beauty." },
+      { title: "Close the loops", body: "Sun, rain and kitchen waste become energy, water and soil. A home that gives back more than it takes." },
+    ],
+    greeneryCaption: "360° Greenery around the site",
+    ecovillaCaption: "Gratitude Ecovilla · Auroma Phase III",
+    quote: "A home should do more than shelter you. It should help you heal — every single day.",
+    quoteBy: "Ar. Trupti Doshi",
+  },
+
+  // Brochure p.6 — "Sustainability You Can Feel". Copy verbatim.
+  sustainability: {
+    kicker: "Sustainability You Can Feel",
+    headlineLine1: "Healthy for you.",
+    headlineLine2: "Gentle on the earth.",
+    body: "Behind the beauty, every system in this villa is quietly working for your health — and lowering what it costs to run.",
+    stats: [
+      { figure: "8°C", label: "cooler indoors with eco-friendly bricks" },
+      { figure: "<50", label: "AQI — air in the ‘Good’ range" },
+      { figure: "24×7", label: "solar hot water in every washroom" },
+      { figure: "360°", label: "greenery all around" },
+    ],
+    features: [
+      { title: "Site & Air", body: "Surrounded by 360° greenery, with air quality consistently below AQI 50 — in the ‘Good’ range." },
+      { title: "Natural Daylight", body: "Generous openings and a central courtyard light the home through the day — less artificial lighting." },
+      { title: "Eco-Friendly Bricks", body: "Thermal-mass walls keep interiors up to 8°C cooler than outside — lower AC use, better sleep." },
+      { title: "Cross-Ventilation", body: "Rooms are oriented to catch the sea breeze, flushing every floor with fresh air." },
+      { title: "Solar Power & Hot Water", body: "Rooftop solar cuts electricity bills; 24×7 solar hot water reaches every washroom." },
+      { title: "Rainwater Harvesting", body: "Roof water is collected and recharged into the ground beneath your home." },
+      { title: "Kitchen Waste Composting", body: "Food waste becomes rich manure for the garden and herb beds — nothing wasted." },
+      { title: "Pure Drinking Water", body: "Healthy, dynamised drinking water for the whole household. Plus an EV charging point." },
+    ],
+  },
+
   midCta: {
     headline: "Want the plans, areas and full price sheet?",
     body: "The brochure comes to you on WhatsApp, straight away.",
@@ -71,7 +197,7 @@ export const lpB = {
   },
 
   form: {
-    headline: "Get the brochure on WhatsApp.",
+    headline: "Get the brochure.",
     body: "Plans, areas, specifications and the full price sheet —\nsent to you in about a minute.",
   },
 

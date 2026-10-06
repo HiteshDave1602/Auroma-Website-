@@ -12,7 +12,7 @@ import { scrollToContactForm } from "@/lib/scrollToContact";
 // in-page sections only; the CTA button remains the sole outbound link.
 const navLinks = [
   { label: "The Villa", href: "#gallery" },
-  { label: "The Architect", href: "#architect" },
+  { label: "The Architect", href: "#designed-by" },
   { label: "Location", href: "#location" },
   { label: "Plans", href: "#plans" },
   { label: "Pricing", href: "#pricing" },

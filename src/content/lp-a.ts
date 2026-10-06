@@ -79,7 +79,7 @@ export const lpA = {
   },
 
   form: {
-    headline: "Get the brochure on WhatsApp.",
+    headline: "Get the brochure.",
     body: "Plans, areas, specifications and photographs — sent to you in about a minute.",
   },
 

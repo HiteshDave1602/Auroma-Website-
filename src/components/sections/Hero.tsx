@@ -33,7 +33,9 @@ export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: Hero
   const delay = (ms: number) => ({ transitionDelay: mounted ? `${ms}ms` : "0ms" });
 
   return (
-    <section className="relative flex min-h-[92svh] items-center overflow-hidden bg-midnight sm:min-h-[100svh]">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-midnight">
+      {/* Image fills the whole hero. Centred so the villa stays in frame; on
+          widescreen it shows almost edge-to-edge, on phones the side trees trim. */}
       <div className="absolute inset-0">
         <Image
           src={image.src}
@@ -42,11 +44,9 @@ export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: Hero
           priority
           fetchPriority="high"
           sizes="100vw"
-          className={`object-cover transition-transform duration-[20000ms] ease-out ${
-            mounted ? "scale-[1.06]" : "scale-100"
-          }`}
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(28,43,53,0.18)_0%,rgba(28,43,53,0.62)_55%,rgba(28,43,53,0.85)_100%)] sm:bg-[linear-gradient(to_right,rgba(28,43,53,0.82)_0%,rgba(28,43,53,0.62)_45%,rgba(28,43,53,0.18)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(28,43,53,0.35)_0%,rgba(28,43,53,0.45)_50%,rgba(28,43,53,0.8)_100%)] sm:bg-[linear-gradient(to_right,rgba(28,43,53,0.8)_0%,rgba(28,43,53,0.55)_35%,rgba(28,43,53,0.05)_65%)]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32">

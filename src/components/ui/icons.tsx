@@ -294,3 +294,83 @@ export function IconBreezeLeaf(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconSun(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="3.5" />
+      <path d="M12 3 V5 M12 19 V21 M3 12 H5 M19 12 H21 M5.6 5.6 L7 7 M17 17 L18.4 18.4 M5.6 18.4 L7 17 M17 7 L18.4 5.6" />
+    </svg>
+  );
+}
+
+export function IconWind(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 9 H14 C16 9 17 7.5 16.5 6.2 C16 5 14.3 4.8 13.6 6" />
+      <path d="M3 13 H18 C20 13 21 14.5 20.5 15.8 C20 17 18.3 17.2 17.6 16" />
+      <path d="M3 17 H11" />
+    </svg>
+  );
+}
+
+export function IconThermometer(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M10 14.5 V5 C10 3.9 10.9 3 12 3 C13.1 3 14 3.9 14 5 V14.5 C15.2 15.2 16 16.5 16 18 C16 20.2 14.2 22 12 22 C9.8 22 8 20.2 8 18 C8 16.5 8.8 15.2 10 14.5 Z" />
+      <path d="M12 11 V18" />
+      <path d="M17 6 H19 M17 9 H19 M17 12 H19" />
+    </svg>
+  );
+}
+
+export function IconMoon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M19 15.5 C17.9 15.8 16.8 16 15.6 16 C11.4 16 8 12.6 8 8.4 C8 6.4 8.8 4.6 10 3.2 C6 4.1 3 7.7 3 12 C3 17 7 21 12 21 C15.3 21 18.1 19.2 19.6 16.5" />
+    </svg>
+  );
+}
+
+export function IconLeaf(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 19 C5 11 10 5 20 4 C20 13 15 19 7 19 Z" />
+      <path d="M5 19 L13 11" />
+    </svg>
+  );
+}
+
+export function IconWalk(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="13" cy="4.5" r="1.6" />
+      <path d="M12 8 L10 13 L13 16 L14 21" />
+      <path d="M10 13 L8 21" />
+      <path d="M12 8 L15 11 L18 12" />
+      <path d="M12 8 L8.5 10 L7 13" />
+    </svg>
+  );
+}
+
+export function IconLotus(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 17 C9.5 14.5 9.5 10.5 12 7 C14.5 10.5 14.5 14.5 12 17 Z" />
+      <path d="M12 17 C8.5 17 5.5 14.5 4.5 11 C7.5 11 10 12.8 12 17" />
+      <path d="M12 17 C15.5 17 18.5 14.5 19.5 11 C16.5 11 14 12.8 12 17" />
+      <path d="M4 19.5 H20" />
+    </svg>
+  );
+}
+
+export function IconPeople(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="9" cy="8" r="3" />
+      <path d="M3.5 20 C3.5 16.4 6 14 9 14 C12 14 14.5 16.4 14.5 20" />
+      <circle cx="16.5" cy="9" r="2.4" />
+      <path d="M15.5 14.2 C18.4 14 20.5 16.2 20.5 19.5" />
+    </svg>
+  );
+}

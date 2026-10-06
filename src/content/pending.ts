@@ -16,7 +16,7 @@ export const PENDING = {
   /** Written consent on file for all eight owner quotes + portraits (B11/A10) — confirmed 15 Sept 2026. */
   testimonialConsent: true,
   /** Second floor plan drawing. */
-  secondFloorPlanUrl: null as string | null,
+  secondFloorPlanUrl: "/images/plans/second-floor-plan.jpg" as string | null,
   /** Carpet area and plot area, in sq. ft. */
   carpetAreaSqFt: null as number | null,
   plotAreaSqFt: null as number | null,

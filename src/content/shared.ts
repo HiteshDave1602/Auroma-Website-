@@ -50,8 +50,8 @@ export const villaImages = {
     src: "/images/villa/hero-front.jpg",
     alt: "Auroma Holiday Villa front view — a three-storey home with glass gables, planted balconies, timber pergola and stone boundary wall.",
     caption: undefined,
-    width: 1091,
-    height: 1441,
+    width: 1672,
+    height: 941,
   },
   groundFloorPlanDetail: {
     src: "/images/villa/ground-floor-plan-detail.jpg",
@@ -188,8 +188,14 @@ export const planImages = {
     height: 1608,
   },
   second: {
-    src: "/images/plans/second-floor.jpg",
-    alt: "Second floor plan — terrace recreation zone with pool table, chess and carrom, washer-dryer, inverter and battery, water tanks, DG backup, solar panels and solar water heater.",
+    src: "/images/plans/second-floor-plan.jpg",
+    alt: "Second floor plan — terrace recreation zone with pool table, chess and carrom, staircase around a planted light well, washer-dryer, inverter and battery, water tanks, DG backup, solar panels and solar water heater.",
+    width: 972,
+    height: 1600,
+  },
+  terrace: {
+    src: "/images/plans/terrace.jpg",
+    alt: "Terrace plan — pergola-covered deck with pool table, chess and carrom tables, a solar panel array over the tiled roof, twin water tanks, DG backup, further solar panels and a solar water heater.",
     width: 927,
     height: 1697,
   },
@@ -212,25 +218,24 @@ export const credibilityItems = {
   ],
 };
 
+// Brochure p.27 — "The Architect". Copy verbatim.
 export const architect = {
   eyebrow: "The Architect",
+  designedByLabel: "Designed by",
   name: "Ar. Trupti Doshi",
-  role: "Principal Architect and Co-founder, The Auroma Architecture.",
-  bio: [
-    "She has spent twenty-five years asking a question most builders never ask: what would it take for a house to feel alive? She took that question to a TEDx stage in Greece — ",
-  ],
-  bioItalic: "Can a Building Be a Person?",
-  bioContinued:
-    " — and has spent every project since answering it in brick, lime and light.",
+  role: "Founder & Principal Architect, Auroma Architecture",
   credentials: [
-    { stat: "200+ designer homes", detail: "delivered across Pondicherry–Auroville" },
-    { stat: "Gratitude Ecovilla", detail: "— India's first internationally recognised “House of Tomorrow”" },
-    { stat: "Sharanam", detail: "— recognised by the United Nations for sustainable architecture" },
-    { stat: "GRIHA 5-Star", detail: "with an Exemplary Performance Award" },
-    { stat: "40+", detail: "national and international awards" },
-    { stat: "5,00,000+ sq. ft.", detail: "of eco-spaces designed around nature and wellness" },
+    "25+ years of architectural practice",
+    "Recognised among India’s Top 10 Eco-Architects",
+    "Technical Advisor to Government of India Green Building Policy",
+    "Represented India at the World Youth Congress, Washington D.C.",
+    "Represented India at TEDx Europe",
+    "2× TEDx Speaker — received a standing ovation for her TEDx talks",
+    "Work showcased at the Red Fort, New Delhi, as part of the India@75 national celebrations, inaugurated by Hon. Prime Minister Narendra Modi",
+    "Work featured in 40+ national & international publications",
   ],
-  closing: "This villa was drawn by her hand.",
+  closingLine1: "Your villa isn’t just built.",
+  closingLine2: "It is architect-designed.",
 };
 
 // Auroma Group's completed track record (brochure p.20) — the developer's
@@ -840,6 +845,11 @@ export const plans = {
     {
       label: "Second floor",
       detail:
+        "Private game room. Pool table, carrom and chess under a timber pergola, looking out over the treetops.",
+    },
+    {
+      label: "Terrace plan",
+      detail:
         "An open terrace under a timber pergola. The games room, solar array, and the best seat in the house at six in the evening.",
     },
   ],
@@ -965,7 +975,7 @@ export const testimonials = [
       src: "/images/testimonials/sumedh.jpg",
       alt: "Sumedh Reddy, Auroma Phase 4 homeowner.",
       width: 500,
-      height: 500,
+      height: 489,
     },
   },
   {
@@ -999,7 +1009,7 @@ export const faqShared = {
 
 export const confirmationCopy = {
   headline: "On its way.",
-  body: "Check WhatsApp — the brochure should be with you in about a minute.",
+  body: "Thank you. Your copy of the brochure is ready — download it below.",
   submitCta: "Send me the brochure",
 };
 

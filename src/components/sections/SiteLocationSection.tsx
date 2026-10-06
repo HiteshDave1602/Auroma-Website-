@@ -28,14 +28,13 @@ export function SiteLocationSection({ id }: { id?: string }) {
       id={id}
       className="scroll-mt-20 bg-sand-texture px-6 pt-20 sm:px-8 sm:pt-28"
     >
-      {/* Held to the content width rather than full-bleed: the current
-          aerials are crops from the brochure page, not full-size originals. */}
       <div className="mx-auto max-w-[1100px]">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-2xl bg-midnight">
           <Image
             src={siteLocation.aerial.src}
             alt={siteLocation.aerial.alt}
             fill
+            quality={90}
             sizes="(min-width: 1100px) 1100px, 100vw"
             className="object-cover"
           />
@@ -55,7 +54,7 @@ export function SiteLocationSection({ id }: { id?: string }) {
           {siteLocation.details.map((photo, i) => (
             <div
               key={photo.src}
-              className={`relative aspect-square overflow-hidden bg-midnight ${
+              className={`relative aspect-[16/9] overflow-hidden bg-midnight ${
                 i === 0
                   ? "sm:rounded-bl-2xl"
                   : "rounded-b-2xl sm:rounded-bl-none"
@@ -65,6 +64,7 @@ export function SiteLocationSection({ id }: { id?: string }) {
                 src={photo.src}
                 alt={photo.alt}
                 fill
+                quality={90}
                 sizes="(min-width: 1100px) 550px, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
               />
