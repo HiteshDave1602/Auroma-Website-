@@ -8,8 +8,9 @@ export interface ImageAsset {
 }
 
 export const investmentRangeOptions = [
-  "₹3 crore – ₹3.5 crore",
-  "₹3.5 crore – ₹4 crore",
+  "₹2.95cr – ₹3.45cr",
+  "₹3.45cr – ₹3.95cr",
+  "₹3.95cr – ₹4cr+",
 ] as const;
 
 export type InvestmentRange = (typeof investmentRangeOptions)[number];

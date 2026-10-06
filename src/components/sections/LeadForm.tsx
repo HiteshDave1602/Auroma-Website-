@@ -285,7 +285,13 @@ export function LeadForm({
 
             <div className="mt-10 space-y-5">
               <Reveal delay={200}>
-                <InfoCard icon={IconPin} title="Location" body="Near Auroville, Pondicherry" />
+                <InfoCard
+                  icon={IconPin}
+                  title="Location"
+                  body="Near Auroville, Pondicherry"
+                  href="https://maps.app.goo.gl/Mgb3WSBTKnn9nGWK7"
+                  linkLabel="View on Google Maps"
+                />
               </Reveal>
             </div>
           </div>
@@ -527,10 +533,14 @@ function InfoCard({
   icon: Icon,
   title,
   body,
+  href,
+  linkLabel,
 }: {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   body: string;
+  href?: string;
+  linkLabel?: string;
 }) {
   return (
     <div className="card-lift flex items-start gap-4 rounded-xl border border-mist/15 bg-white/[0.03] p-6 transition-colors hover:border-gold-light/30 hover:bg-white/[0.06]">
@@ -540,6 +550,16 @@ function InfoCard({
       <div>
         <h3 className="font-label text-[11px] tracking-[0.14em] uppercase text-gold-light">{title}</h3>
         <p className="mt-1.5 font-body text-[13.5px] leading-relaxed text-sand/85">{body}</p>
+        {href && (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block font-body text-[13px] text-gold-light underline underline-offset-4 transition-colors hover:text-paper"
+          >
+            {linkLabel ?? href} &rarr;
+          </a>
+        )}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export const lpB = {
     line1: "Own a villa near Auroville.",
     line2: "Host it when you're away.",
     body: "3 Bedroom, 4 Bath, Sleeps 8, Swimming Pool, Game Room.\nArchitect-designed by Ar. Trupti Doshi, 10 minutes from the Matrimandir.",
-    priceLine: "~₹3.5 crore",
+    priceLine: "~₹2.95 crore",
     cta: "Download Brochure",
   },
 

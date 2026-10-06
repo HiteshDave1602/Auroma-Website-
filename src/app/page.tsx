@@ -116,6 +116,7 @@ export default function HomePage() {
         <LocationAdvantagesSection id="location-advantages" />
         <LocationSection id="location" comeForLabel="What your guests will come for" />
         <SiteLocationSection id="site-location" />
+        <LeadForm variant="investor" headline={lpB.form.headline} body={lpB.form.body} />
         <PlansSection id="plans" />
         <PricingSection
           id="pricing"
@@ -126,7 +127,6 @@ export default function HomePage() {
           cta={lpB.pricing.cta}
         />
         <PaymentPlanSection id="payment-plan" />
-        <LeadForm variant="investor" headline={lpB.form.headline} body={lpB.form.body} />
         <TrackRecordSection id="track-record" />
         <TestimonialsSection id="testimonials" />
         <ArchitectSection id="the-architect" />
