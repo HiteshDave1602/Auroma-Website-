@@ -59,7 +59,7 @@ export function SiteHeader({ cta }: { cta: string }) {
             height={1671}
             sizes="190px"
             className="h-auto w-[150px] object-contain sm:w-[190px]"
-            priority
+            loading="eager"
           />
         </a>
 

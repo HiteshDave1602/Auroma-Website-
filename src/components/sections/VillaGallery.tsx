@@ -119,7 +119,7 @@ export function VillaGallery({
             aria-label={`Open image ${i + 1} of ${images.length}`}
             className="relative block aspect-[4/3] w-full overflow-hidden rounded-xl shadow-xl shadow-midnight/10"
           >
-            <GalleryImage img={img} priority={i === 0} />
+            <GalleryImage img={img} />
             <ImageCaption caption={img.caption} />
           </button>
         ))}
@@ -141,7 +141,7 @@ export function VillaGallery({
               aria-label={`Open image ${i + 1} of ${images.length}`}
               className="relative aspect-[4/3] w-[82vw] shrink-0 snap-center overflow-hidden rounded-xl shadow-xl shadow-midnight/10 sm:w-[60vw]"
             >
-              <GalleryImage img={img} priority={i === 0} eager={i !== 0} />
+              <GalleryImage img={img} eager />
               <ImageCaption caption={img.caption} />
             </button>
           ))}
@@ -238,22 +238,16 @@ export function VillaGallery({
 // is stuck unloaded until the user swipes there manually. The carousel's
 // images are small (next/image serves the ~85vw crop), so loading them
 // upfront is cheap and guarantees every photo is reachable.
-function GalleryImage({
-  img,
-  priority,
-  eager,
-}: {
-  img: (typeof images)[number];
-  priority?: boolean;
-  eager?: boolean;
-}) {
+function GalleryImage({ img, eager }: { img: (typeof images)[number]; eager?: boolean }) {
   return (
     <Image
       src={img.src}
       alt={img.alt}
       fill
-      priority={priority}
-      loading={priority ? undefined : eager ? "eager" : "lazy"}
+      loading={eager ? "eager" : "lazy"}
+      // Low priority keeps these eager loads (and React's head preloads for
+      // them) from competing with the hero image, the page's LCP element.
+      fetchPriority={eager ? "low" : undefined}
       sizes="(min-width: 1024px) 30vw, 85vw"
       className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
     />

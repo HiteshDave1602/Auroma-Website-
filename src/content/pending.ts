@@ -7,6 +7,8 @@
 export const PENDING = {
   /** Published per BUILD-SPEC v3 §1, §5.1, §5.11 — must match the hero figure. */
   priceFrom: "~₹2.95 crore" as string | null,
+  /** priceFrom in rupees, for the JSON-LD Offer. Null hides the Offer. */
+  priceFromInr: 29_500_000 as number | null,
   /** 300dpi approved portrait of Ar. Trupti Doshi. */
   architectPortraitUrl: "/images/team/trupti-doshi.jpg" as string | null,
   /** Which project holds the GRIHA 5-Star rating. */

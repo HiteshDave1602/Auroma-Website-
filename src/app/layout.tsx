@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost, DM_Sans } from "next/font/google";
-import { siteUrl } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -27,8 +27,10 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Auroma Holiday Villas",
-  description: "An architect-designed holiday villa near Auroville.",
+  title: siteName,
+  description: "An architect-designed holiday villa near Auroville, Pondicherry.",
+  applicationName: siteName,
+  // Favicon and apple-touch-icon come from app/icon.png and app/apple-icon.png.
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

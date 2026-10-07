@@ -1,6 +1,9 @@
 /**
- * TODO(deploy): set NEXT_PUBLIC_SITE_URL to the real production domain once
- * it's registered — this placeholder only matters for the sitemap/robots
- * output and OG absolute URLs, and is not a claim about a live domain.
+ * Canonical production origin. Drives metadataBase (canonical, og:url, OG
+ * image URLs), sitemap.xml, robots.txt and the JSON-LD @ids. Override with
+ * NEXT_PUBLIC_SITE_URL only if the primary domain changes — preview
+ * deployments should still point their canonical at production.
  */
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.auromaholidayvillas.com";
+
+export const siteName = "Auroma Holiday Villas";

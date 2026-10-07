@@ -1,13 +1,24 @@
 // Investor landing page ("/"). Copy set verbatim per BUILD-SPEC v3.0
 // (Two Rabbits · Auroma Holiday Villas · 26 August 2026).
-// Register: rational, specific. Noindex, nofollow — paid traffic only.
+// Register: rational, specific. Indexable — the price in the title and
+// description must stay in step with hero.priceLine and PENDING.priceFrom.
 
 export const lpB = {
   meta: {
-    title: "Auroma Holiday Villas — An Architect-Designed Villa Near Auroville",
+    title: "Auroma Holiday Villas | Villa Near Auroville, Pondicherry — ~₹2.95 Crore",
+    // Keep under 160 characters so Google shows it untruncated.
     description:
-      "Own a villa near Auroville. Three bedrooms, sleeps eight, private plunge pool. Architect-designed by Ar. Trupti Doshi, ten minutes from the Matrimandir.",
-    robots: "noindex, nofollow",
+      "Architect-designed 3-bedroom villa near Auroville, Pondicherry. Sleeps 8, private pool, game room, 10 min from Matrimandir. ~₹2.95 crore. Get the brochure.",
+    keywords: [
+      "villa near Auroville",
+      "Pondicherry holiday home",
+      "Airbnb investment villa",
+      "villa for sale Pondicherry",
+      "holiday villa Auroville",
+      "architect-designed villa",
+      "second home Pondicherry",
+      "wellness villa Auroville",
+    ],
   },
 
   hero: {

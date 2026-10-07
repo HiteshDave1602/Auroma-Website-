@@ -28,6 +28,8 @@ import { ArchitectSection } from "@/components/sections/ArchitectSection";
 import { AnalyticsBoot } from "@/components/AnalyticsBoot";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { lpB } from "@/content/lp-b";
+import { siteName } from "@/lib/site";
+import { homeJsonLd, jsonLdScript } from "@/lib/structuredData";
 import {
   credibilityItems,
   villaImages,
@@ -45,17 +47,37 @@ import {
   signatureExperiences,
 } from "@/content/shared";
 
-// Investor landing page (BUILD-SPEC v3.0). Noindex, nofollow: paid traffic
-// only, per §2.4. Excluded from sitemap.xml (see app/sitemap.ts).
+// Investor landing page (BUILD-SPEC v3.0). Indexable and listed in
+// sitemap.xml. og:image / twitter:image come from app/opengraph-image.jpg
+// and app/twitter-image.jpg (file-based metadata).
 export const metadata: Metadata = {
   title: lpB.meta.title,
   description: lpB.meta.description,
-  robots: { index: false, follow: false },
+  keywords: [...lpB.meta.keywords],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName,
+    locale: "en_IN",
+    title: lpB.meta.title,
+    description: lpB.meta.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: lpB.meta.title,
+    description: lpB.meta.description,
+  },
 };
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(homeJsonLd()) }}
+      />
       <AnalyticsBoot />
       <SiteHeader cta={lpB.hero.cta} />
       <StickyCtaBar cta={lpB.hero.cta} />

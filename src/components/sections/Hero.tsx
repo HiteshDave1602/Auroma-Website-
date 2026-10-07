@@ -41,7 +41,7 @@ export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: Hero
           src={image.src}
           alt={image.alt}
           fill
-          priority
+          loading="eager"
           fetchPriority="high"
           sizes="100vw"
           className="object-cover object-center"
