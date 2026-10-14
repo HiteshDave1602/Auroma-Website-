@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/Button";
+import { Button, buttonClasses } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { PENDING } from "@/content/pending";
 import { trackEvent } from "@/lib/analytics";
 import { scrollToContactForm } from "@/lib/scrollToContact";
 import type { ImageAsset } from "@/content/types";
@@ -15,10 +16,26 @@ interface HeroProps {
   body: string;
   priceLine: string;
   cta: string;
+  scheduleCta: string;
+  scheduleMessage: string;
   image: ImageAsset;
 }
 
-export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: HeroProps) {
+export function Hero({
+  kicker,
+  line1,
+  line2,
+  body,
+  priceLine,
+  cta,
+  scheduleCta,
+  scheduleMessage,
+  image,
+}: HeroProps) {
+  const whatsappDigits = PENDING.whatsappNumber?.replace(/\D/g, "");
+  const scheduleUrl = whatsappDigits
+    ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(scheduleMessage)}`
+    : null;
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -58,11 +75,14 @@ export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: Hero
           </div>
 
           <h1
-            className={`mt-6 font-display text-[1.9rem] font-normal leading-[1.05] text-paper sm:text-5xl lg:text-6xl ${step()}`}
+            className={`mt-6 font-display text-[min(6vw,3.25rem)] font-normal leading-[1.05] text-paper ${step()}`}
             style={delay(320)}
           >
-            <span className="block">{line1}</span>
-            <span className="block italic text-gold-light">{line2}</span>
+            {/* Sized so line1 (~14em wide in Cormorant) fits the hero column on
+                one line at every viewport: 6vw clears the side padding down to
+                ~255px wide, and 3.25rem keeps it inside max-w-3xl on desktop. */}
+            <span className="block whitespace-nowrap">{line1}</span>
+            <span className="block whitespace-nowrap italic text-gold-light">{line2}</span>
           </h1>
 
           <p
@@ -94,6 +114,17 @@ export function Hero({ kicker, line1, line2, body, priceLine, cta, image }: Hero
             >
               {cta}
             </Button>
+            {scheduleUrl && (
+              <a
+                href={scheduleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("whatsapp_open", { location: "hero_schedule_call" })}
+                className={buttonClasses("outline-light")}
+              >
+                {scheduleCta}
+              </a>
+            )}
           </div>
         </div>
       </div>

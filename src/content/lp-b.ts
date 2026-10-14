@@ -22,12 +22,15 @@ export const lpB = {
   },
 
   hero: {
-    kicker: "NEAR AUROVILLE · PONDICHERRY",
-    line1: "Own a villa near Auroville.",
-    line2: "Host it when you're away.",
-    body: "3 Bedroom, 4 Bath, Sleeps 8, Swimming Pool, Game Room.\nArchitect-designed by Ar. Trupti Doshi, 10 minutes from the Matrimandir.",
-    priceLine: "~₹2.95 crore",
+    kicker: "TAMIL NADU · 15 MIN FROM PONDICHERRY",
+    line1: "Own a wellness villa near Auroville.",
+    line2: "Wake up feeling better.",
+    body: "3 BHK · 4 bath · sleeps 8 · private pool · game room. Available fully furnished.\nDesigned by Ar. Trupti Doshi, 10 minutes from the Matrimandir.",
+    priceLine: "~₹2.95 Cr*",
     cta: "Download Brochure",
+    scheduleCta: "Schedule a Call",
+    // Pre-filled WhatsApp message sent when the visitor taps scheduleCta.
+    scheduleMessage: "Hi, I want to schedule a call about Auroma Holiday Villas.",
   },
 
   theCase: {
@@ -38,20 +41,20 @@ export const lpB = {
       line2Accent: "true Wellness Home?",
     },
     body: "Designed by one of India’s most celebrated sustainable architects —\nminutes from Auroville, India’s most sustainable wellness eco-city.",
-    closing: ["For your health.", "For your holidays.", "For Airbnb returns."],
+    closing: ["For your health.", "For your holidays.", "For your family."],
   },
 
   hosting: {
-    kicker: "Designed for Hosting",
-    headline: "Every decision made with your guests in mind.",
+    kicker: "Designed for Living",
+    headline: "Every decision made with your family in mind.",
     points: [
       {
         title: "Sleeps eight, in three ensuite bedrooms.",
-        body: "Group bookings are the difference between a listing and a business.",
+        body: "Room for the whole family, and the friends who always come along.",
       },
       {
-        title: "You won't be running it yourself.",
-        body: "You don't live here — we do. We'll introduce you to hosts and property managers already operating in Auroville and Pondicherry who handle listings, guests, cleaning and keys. They contract directly with you. We make the introduction and take nothing from it.",
+        title: "Away for a while? We'll help you host.",
+        body: "When you're not here, we can introduce you to trusted hosts and property managers in Auroville and Pondicherry who look after guests, cleaning and keys. They contract directly with you. We make the introduction and take nothing from it.",
       },
       {
         title: "A plunge pool at the door, not down the road.",
@@ -113,7 +116,7 @@ export const lpB = {
       },
     ],
     closingLine1: "Auroma Wellness Villas are designed for this shift —",
-    closingLine2: "a home that cares for you, and an asset in the fastest-growing sector of the wellness economy.",
+    closingLine2: "a home that cares for you, every time you walk in.",
     sources:
       "Sources: Global Wellness Institute — “Wellness Real Estate Market Reaches $876 Billion—Forecast to Hit $1.8 Trillion by 2030” (May 2026) and GWI wellness real estate research; US Environmental Protection Agency (time spent indoors).",
   },
@@ -201,7 +204,8 @@ export const lpB = {
 
   pricing: {
     kicker: "Pricing",
-    headlinePrefix: "",
+    headline: "~₹2.95 Cr*",
+    note: "*Excl. GST, stamp duty and registration. T&C apply.",
     exclusions: "Exclusive of registration, stamp duty, GST and statutory charges.",
     revision: "Prices are indicative and subject to revision.",
     cta: "Get the full price sheet on WhatsApp",

@@ -15,7 +15,6 @@ const navLinks = [
   { label: "The Villa", href: "#gallery" },
   { label: "Location", href: "#location" },
   { label: "Plans", href: "#plans" },
-  { label: "Pricing", href: "#pricing" },
 ];
 
 const navLinkClasses =

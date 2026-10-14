@@ -9,14 +9,16 @@ import { trackEvent } from "@/lib/analytics";
 
 export function PricingSection({
   kicker,
-  headlinePrefix,
+  headline,
+  note,
   exclusions,
   revision,
   cta,
   id,
 }: {
   kicker: string;
-  headlinePrefix: string;
+  headline: string;
+  note: string;
   exclusions: string;
   revision: string;
   cta: string;
@@ -31,10 +33,10 @@ export function PricingSection({
 
         <Reveal delay={80}>
           {PENDING.priceFrom ? (
-            <h2 className="mt-5 font-display text-4xl font-normal text-paper sm:text-6xl">
-              {headlinePrefix}
-              {PENDING.priceFrom}.
-            </h2>
+            <>
+              <h2 className="mt-5 font-display text-4xl font-normal text-paper sm:text-6xl">{headline}</h2>
+              <p className="mt-3 font-body text-[14px] leading-relaxed text-mist sm:text-[15px]">{note}</p>
+            </>
           ) : (
             <h2 className="mt-5 font-display text-3xl font-normal leading-tight text-paper sm:text-5xl">
               Price shared on request.

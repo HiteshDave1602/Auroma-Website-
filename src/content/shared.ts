@@ -539,8 +539,8 @@ export const designFeaturesClosing =
 // Brochure p.6 — Location Advantages, verbatim.
 export const locationAdvantages = {
   eyebrow: "Location Advantages",
-  headline: "Where the forest",
-  headlineItalic: "meets the sea.",
+  headline: "Green on every side.",
+  headlineItalic: "Everything you need, minutes away.",
   intro:
     "A green pocket between Auroville and Pondicherry — close to everything that matters, far from everything that doesn’t.",
   images: [
@@ -574,7 +574,7 @@ export const locationAdvantages = {
       label: "Close to the beaches",
       body: "Sunrise walks at Auroville, Serenity, Repos and Paradise beaches.",
     },
-    { label: "Close to pondicherry", body: "15 minutes to the French Quarter, the Promenade and its cafés." },
+    { label: "Close to Pondicherry", body: "15 minutes to the French Quarter, the Promenade and its cafés." },
     {
       label: "Birds, Shade & Fresh Herbs",
       body: "Shady trees, a kitchen herb garden and a daily chorus of birds.",
@@ -652,7 +652,7 @@ export const location = {
   ],
 };
 
-export const signaturePlacesEyebrow = "The Perfect Airbnb";
+export const signaturePlacesEyebrow = "Life Near Auroville";
 export const signaturePlacesHeadline = "Signature Places";
 export const signaturePlaces = [
   {
@@ -741,7 +741,7 @@ export const signaturePlaces = [
   },
 ] as const;
 
-export const signatureExperiencesEyebrow = "The Perfect Airbnb";
+export const signatureExperiencesEyebrow = "Your Weekends Here";
 export const signatureExperiencesHeadline = "Signature Experiences";
 export const signatureExperiences = [
   {

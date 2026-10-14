@@ -19,7 +19,6 @@ import { LocationAdvantagesSection } from "@/components/sections/LocationAdvanta
 import { SiteLocationSection } from "@/components/sections/SiteLocationSection";
 import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { PlansSection } from "@/components/sections/PlansSection";
-import { PricingSection } from "@/components/sections/PricingSection";
 import { PaymentPlanSection } from "@/components/sections/PaymentPlanSection";
 import { LeadForm } from "@/components/sections/LeadForm";
 import { TrackRecordSection } from "@/components/sections/TrackRecordSection";
@@ -91,6 +90,8 @@ export default function HomePage() {
           body={lpB.hero.body}
           priceLine={lpB.hero.priceLine}
           cta={lpB.hero.cta}
+          scheduleCta={lpB.hero.scheduleCta}
+          scheduleMessage={lpB.hero.scheduleMessage}
           image={villaImages.heroFront}
         />
         <CredibilityStrip items={credibilityItems.investor} />
@@ -140,14 +141,6 @@ export default function HomePage() {
         <SiteLocationSection id="site-location" />
         <LeadForm variant="investor" headline={lpB.form.headline} body={lpB.form.body} />
         <PlansSection id="plans" />
-        <PricingSection
-          id="pricing"
-          kicker={lpB.pricing.kicker}
-          headlinePrefix={lpB.pricing.headlinePrefix}
-          exclusions={lpB.pricing.exclusions}
-          revision={lpB.pricing.revision}
-          cta={lpB.pricing.cta}
-        />
         <PaymentPlanSection id="payment-plan" />
         <TrackRecordSection id="track-record" />
         <TestimonialsSection id="testimonials" />
